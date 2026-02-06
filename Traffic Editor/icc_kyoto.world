@@ -1,0 +1,2041 @@
+<sdf version="1.7">
+  <world name="sim_world">
+    <physics name="10ms" type="ode">
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    <plugin filename="libdoor.so" name="door">
+    </plugin>
+    <plugin filename="liblift.so" name="lift">
+    </plugin>
+    <scene>
+      <ambient>1 1 1</ambient>
+      <background>0.8 0.8 0.8</background>
+      <grid>false</grid>
+    </scene>
+    <gui fullscreen="0">
+      <window>
+        <width>1000</width>
+        <height>845</height>
+        <style material_theme="Light" material_primary="DeepOrange" material_accent="LightBlue" toolbar_color_light="#f3f3f3" toolbar_text_color_light="#111111" toolbar_color_dark="#414141" toolbar_text_color_dark="#f3f3f3" plugin_toolbar_color_light="#bbdefb" plugin_toolbar_text_color_light="#111111" plugin_toolbar_color_dark="#607d8b" plugin_toolbar_text_color_dark="#eeeeee" />
+        <menus>
+          <drawer default="false">
+          </drawer>
+        </menus>
+      </window>
+      <plugin filename="MinimalScene" name="3D View">
+        <gz-gui>
+          <title>3D View</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="string" key="state">docked</property>
+        </gz-gui>
+        <engine>ogre2</engine>
+        <scene>scene</scene>
+        <ambient_light>0.4 0.4 0.4</ambient_light>
+        <background_color>0.8 0.8 0.8</background_color>
+        <camera_pose>16.53195177538976 -43.25309699184993 10 0 0.6 1.57</camera_pose>
+      </plugin>
+      <plugin filename="EntityContextMenuPlugin" name="Entity context menu">
+        <gz-gui>
+          <property key="state" type="string">floating</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="GzSceneManager" name="Scene Manager">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="InteractiveViewControl" name="Interactive view control">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="CameraTracking" name="Camera Tracking">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="MarkerManager" name="Marker manager">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="SelectEntities" name="Select Entities">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="Spawn" name="Spawn Entities">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="VisualizationCapabilities" name="Visualization Capabilities">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="WorldControl" name="World control">
+        <gz-gui>
+          <title>World control</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="bool" key="resizable">false</property>
+          <property type="double" key="height">72</property>
+          <property type="double" key="z">1</property>
+          <property type="string" key="state">floating</property>
+          <anchors target="3D View">
+            <line own="left" target="left" />
+            <line own="bottom" target="bottom" />
+          </anchors>
+        </gz-gui>
+        <play_pause>true</play_pause>
+        <step>true</step>
+        <start_paused>true</start_paused>
+        <use_event>true</use_event>
+      </plugin>
+      <plugin filename="WorldStats" name="World stats">
+        <gz-gui>
+          <title>World stats</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="bool" key="resizable">false</property>
+          <property type="double" key="height">110</property>
+          <property type="double" key="width">290</property>
+          <property type="double" key="z">1</property>
+          <property type="string" key="state">floating</property>
+          <anchors target="3D View">
+            <line own="right" target="right" />
+            <line own="bottom" target="bottom" />
+          </anchors>
+        </gz-gui>
+        <sim_time>true</sim_time>
+        <real_time>true</real_time>
+        <real_time_factor>true</real_time_factor>
+        <iterations>true</iterations>
+      </plugin>
+      <plugin filename="Shapes" name="Shapes">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="x" type="double">0</property>
+          <property key="y" type="double">0</property>
+          <property key="width" type="double">250</property>
+          <property key="height" type="double">50</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+          <property key="cardBackground" type="string">#666666</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="Lights" name="Lights">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="x" type="double">250</property>
+          <property key="y" type="double">0</property>
+          <property key="width" type="double">150</property>
+          <property key="height" type="double">50</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+          <property key="cardBackground" type="string">#666666</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="TransformControl" name="Transform control">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="x" type="double">0</property>
+          <property key="y" type="double">50</property>
+          <property key="width" type="double">250</property>
+          <property key="height" type="double">50</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+          <property key="cardBackground" type="string">#777777</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="Screenshot" name="Screenshot">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="x" type="double">250</property>
+          <property key="y" type="double">50</property>
+          <property key="width" type="double">50</property>
+          <property key="height" type="double">50</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+          <property key="cardBackground" type="string">#777777</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="CopyPaste" name="CopyPaste">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="x" type="double">300</property>
+          <property key="y" type="double">50</property>
+          <property key="width" type="double">100</property>
+          <property key="height" type="double">50</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+          <property key="cardBackground" type="string">#777777</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="ComponentInspector" name="Component inspector">
+        <gz-gui>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="string" key="state">docked</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="EntityTree" name="Entity tree">
+        <gz-gui>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="string" key="state">docked</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="toggle_charging" name="toggle_charging" />
+      <plugin name="toggle_floors" filename="toggle_floors">
+        <floor name="L1" model_name="class_L1">
+          <model name="AdjTable_L1_001" />
+          <model name="AdjTable_L1_002" />
+          <model name="AdjTable_L1_003" />
+          <model name="AdjTable_L1_004" />
+          <model name="AdjTable_L1_005" />
+          <model name="AdjTable_L1_006" />
+          <model name="AdjTable_L1_007" />
+          <model name="AdjTable_L1_008" />
+          <model name="AdjTable_L1_009" />
+          <model name="AdjTable_L1_010" />
+          <model name="AdjTable_L1_011" />
+          <model name="AdjTable_L1_012" />
+          <model name="AdjTable_L1_013" />
+          <model name="AdjTable_L1_014" />
+          <model name="AdjTable_L1_015" />
+          <model name="AdjTable_L1_016" />
+          <model name="AdjTable_L1_017" />
+          <model name="AdjTable_L1_018" />
+          <model name="AdjTable_L1_019" />
+          <model name="AdjTable_L1_020" />
+          <model name="AdjTable_L1_021" />
+          <model name="AdjTable_L1_022" />
+          <model name="AdjTable_L1_023" />
+          <model name="AdjTable_L1_024" />
+          <model name="AdjTable_L1_025" />
+          <model name="AdjTable_L1_026" />
+          <model name="AdjTable_L1_027" />
+          <model name="AdjTable_L1_028" />
+          <model name="AdjTable_L1_029" />
+          <model name="AdjTable_L1_030" />
+          <model name="AdjTable_L1_031" />
+          <model name="AdjTable_L1_032" />
+          <model name="AdjTable_L1_033" />
+          <model name="AdjTable_L1_034" />
+          <model name="AdjTable_L1_035" />
+          <model name="AdjTable_L1_036" />
+          <model name="AdjTable_L1_037" />
+          <model name="AdjTable_L1_038" />
+          <model name="AdjTable_L1_039" />
+          <model name="AdjTable_L1_040" />
+          <model name="AdjTable_L1_041" />
+          <model name="AdjTable_L1_042" />
+          <model name="AdjTable_L1_043" />
+          <model name="AdjTable_L1_044" />
+          <model name="AdjTable_L1_045" />
+          <model name="AdjTable_L1_046" />
+          <model name="AdjTable_L1_047" />
+          <model name="AdjTable_L1_048" />
+          <model name="AdjTable_L1_049" />
+          <model name="AdjTable_L1_050" />
+          <model name="AdjTable_L1_051" />
+          <model name="AdjTable_L1_052" />
+          <model name="AdjTable_L1_053" />
+          <model name="AdjTable_L1_054" />
+          <model name="AdjTable_L1_055" />
+          <model name="AdjTable_L1_056" />
+          <model name="AdjTable_L1_057" />
+          <model name="AdjTable_L1_058" />
+          <model name="AdjTable_L1_059" />
+          <model name="AdjTable_L1_060" />
+          <model name="AdjTable_L1_061" />
+          <model name="AdjTable_L1_062" />
+          <model name="AdjTable_L1_063" />
+          <model name="OfficeChairGrey_L1_001" />
+          <model name="OfficeChairGrey_L1_002" />
+          <model name="OfficeChairGrey_L1_003" />
+          <model name="OfficeChairGrey_L1_004" />
+          <model name="OfficeChairGrey_L1_005" />
+          <model name="OfficeChairGrey_L1_006" />
+          <model name="OfficeChairGrey_L1_007" />
+          <model name="OfficeChairGrey_L1_008" />
+          <model name="OfficeChairGrey_L1_009" />
+          <model name="OfficeChairGrey_L1_010" />
+          <model name="OfficeChairGrey_L1_011" />
+          <model name="OfficeChairGrey_L1_012" />
+          <model name="OfficeChairGrey_L1_013" />
+          <model name="OfficeChairGrey_L1_014" />
+          <model name="OfficeChairGrey_L1_015" />
+          <model name="OfficeChairGrey_L1_016" />
+          <model name="OfficeChairGrey_L1_017" />
+          <model name="OfficeChairGrey_L1_018" />
+          <model name="OfficeChairGrey_L1_019" />
+          <model name="OfficeChairGrey_L1_020" />
+          <model name="OfficeChairGrey_L1_021" />
+          <model name="OfficeChairGrey_L1_022" />
+          <model name="OfficeChairGrey_L1_023" />
+          <model name="OfficeChairGrey_L1_024" />
+          <model name="OfficeChairGrey_L1_025" />
+          <model name="OfficeChairGrey_L1_026" />
+          <model name="OfficeChairGrey_L1_027" />
+          <model name="OfficeChairGrey_L1_028" />
+          <model name="OfficeChairGrey_L1_029" />
+          <model name="OfficeChairGrey_L1_030" />
+          <model name="OfficeChairGrey_L1_031" />
+          <model name="OfficeChairGrey_L1_032" />
+          <model name="OfficeChairGrey_L1_033" />
+          <model name="OfficeChairGrey_L1_034" />
+          <model name="OfficeChairGrey_L1_035" />
+          <model name="OfficeChairGrey_L1_036" />
+          <model name="OfficeChairGrey_L1_037" />
+          <model name="OfficeChairGrey_L1_038" />
+          <model name="OfficeChairGrey_L1_039" />
+          <model name="OfficeChairGrey_L1_040" />
+          <model name="OfficeChairGrey_L1_041" />
+          <model name="OfficeChairGrey_L1_042" />
+          <model name="OfficeChairGrey_L1_043" />
+          <model name="OfficeChairGrey_L1_044" />
+          <model name="OfficeChairGrey_L1_045" />
+          <model name="OfficeChairGrey_L1_046" />
+          <model name="OfficeChairGrey_L1_047" />
+          <model name="OfficeChairGrey_L1_048" />
+          <model name="OfficeChairGrey_L1_049" />
+          <model name="OfficeChairGrey_L1_050" />
+          <model name="OfficeChairGrey_L1_051" />
+          <model name="OfficeChairGrey_L1_052" />
+          <model name="OfficeChairGrey_L1_053" />
+          <model name="OfficeChairGrey_L1_054" />
+          <model name="OfficeChairGrey_L1_055" />
+          <model name="OfficeChairGrey_L1_056" />
+          <model name="OfficeChairGrey_L1_057" />
+          <model name="OfficeChairGrey_L1_058" />
+          <model name="OfficeChairGrey_L1_059" />
+          <model name="OfficeChairGrey_L1_060" />
+          <model name="OfficeChairGrey_L1_061" />
+          <model name="OfficeChairGrey_L1_062" />
+          <model name="OfficeChairGrey_L1_063" />
+          <model name="OfficeChairGrey_L1_064" />
+          <model name="OfficeChairGrey_L1_065" />
+          <model name="OfficeChairGrey_L1_066" />
+          <model name="OfficeChairGrey_L1_067" />
+          <model name="OfficeChairGrey_L1_068" />
+          <model name="OfficeChairGrey_L1_069" />
+          <model name="OfficeChairGrey_L1_070" />
+          <model name="OfficeChairGrey_L1_071" />
+          <model name="OfficeChairGrey_L1_072" />
+          <model name="OfficeChairGrey_L1_073" />
+          <model name="OfficeChairGrey_L1_074" />
+          <model name="OfficeChairGrey_L1_075" />
+          <model name="OfficeChairGrey_L1_076" />
+          <model name="OfficeChairGrey_L1_077" />
+          <model name="OfficeChairGrey_L1_078" />
+          <model name="OfficeChairGrey_L1_079" />
+          <model name="OfficeChairGrey_L1_080" />
+          <model name="OfficeChairGrey_L1_081" />
+          <model name="OfficeChairGrey_L1_082" />
+          <model name="OfficeChairGrey_L1_083" />
+          <model name="OfficeChairGrey_L1_084" />
+          <model name="OfficeChairGrey_L1_085" />
+          <model name="OfficeChairGrey_L1_086" />
+          <model name="OfficeChairGrey_L1_087" />
+          <model name="OfficeChairGrey_L1_088" />
+          <model name="OfficeChairGrey_L1_089" />
+          <model name="OfficeChairGrey_L1_090" />
+          <model name="OfficeChairGrey_L1_091" />
+          <model name="OfficeChairGrey_L1_092" />
+          <model name="OfficeChairGrey_L1_093" />
+          <model name="OfficeChairGrey_L1_094" />
+          <model name="OfficeChairGrey_L1_095" />
+          <model name="OfficeChairGrey_L1_096" />
+          <model name="OfficeChairGrey_L1_097" />
+          <model name="OfficeChairGrey_L1_098" />
+          <model name="OfficeChairGrey_L1_099" />
+          <model name="OfficeChairGrey_L1_100" />
+          <model name="OfficeChairGrey_L1_101" />
+          <model name="OfficeChairGrey_L1_102" />
+          <model name="OfficeChairGrey_L1_103" />
+          <model name="OfficeChairGrey_L1_104" />
+          <model name="OfficeChairGrey_L1_105" />
+          <model name="OfficeChairGrey_L1_106" />
+          <model name="OfficeChairGrey_L1_107" />
+          <model name="OfficeChairGrey_L1_108" />
+          <model name="OfficeChairGrey_L1_109" />
+          <model name="OfficeChairGrey_L1_110" />
+          <model name="OfficeChairGrey_L1_111" />
+          <model name="OfficeChairGrey_L1_112" />
+          <model name="OfficeChairGrey_L1_113" />
+          <model name="OfficeChairGrey_L1_114" />
+          <model name="OfficeChairGrey_L1_115" />
+          <model name="OfficeChairGrey_L1_116" />
+          <model name="OfficeChairGrey_L1_117" />
+          <model name="OfficeChairGrey_L1_118" />
+          <model name="OfficeChairGrey_L1_119" />
+          <model name="OfficeChairGrey_L1_120" />
+          <model name="OfficeChairGrey_L1_121" />
+          <model name="OfficeChairGrey_L1_122" />
+          <model name="door_L1_01" />
+          <model name="door_L1_02" />
+          <model name="door_L1_03" />
+          <model name="door_L1_04" />
+          <model name="door_L1_05" />
+        </floor>
+        <floor name="L2" model_name="class_L2" />
+      </plugin>
+    </gui>
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.09</constant>
+        <linear>0.001</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <include>
+      <name>AdjTable_L1_001</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>15.923565715785555 -11.244266916763022 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_002</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>17.444460784511907 -11.264016815026505 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_003</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>19.679537658185495 -11.224924758334657 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_004</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>21.275609759011555 -11.224924758334657 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_005</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>23.53469231547766 -11.24949108340046 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_006</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>24.983417433388286 -11.224924758334657 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_007</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>15.971755467548455 -12.722782526376893 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_008</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>17.371373419067172 -12.722782526376893 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_009</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>19.679537658185495 -12.747348851442696 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_010</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>21.275609759011555 -12.747348851442696 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_011</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>23.485559665346052 -12.600001868527267 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_012</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>25.04898709562305 -12.626887213905299 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_013</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>23.510125990411854 -14.073318795243395 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_014</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>24.983417433388286 -14.097859636569504 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_015</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>15.824816224468142 -14.207057461161794 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_016</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>17.371373419067172 -14.22064029441913 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_017</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>19.664680637943416 -14.1598360915073 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_018</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>21.28988065324065 -14.144367461512543 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_019</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>15.844566122731624 -15.53042806351362 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_020</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>17.365461191457975 -15.53042806351362 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_021</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>18.71706777739166 -39.040197281569746 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_022</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>30.244892265738905 -41.00909649413098 0.0 0 0 1.5708</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_023</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>30.244892265738905 -42.907864455052064 0.0 0 0 1.5708</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_024</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>25.02327400227098 -23.88631695578674 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_025</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>25.02327400227098 -22.496153471694797 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_026</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>24.989737400832603 -21.060985703301807 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_027</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>24.989380628476876 -19.64798878844331 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_028</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>24.936578319829216 -18.28516935704391 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_029</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>24.969987502569122 -16.952573640922555 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_030</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>24.989380628476876 -15.579203941289501 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_031</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>23.37006735704914 -15.56995334378028 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_032</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>23.508342128633217 -16.97232353918604 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_033</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>23.565298286851135 -18.29174416188517 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_034</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>23.531404913057028 -19.614095414649206 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_035</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>23.409567153576106 -21.08073560156529 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_036</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>23.565298286851135 -22.496153471694797 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_037</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>23.599217144384934 -23.920210329580843 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_038</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>19.73570382047287 -15.510678165250138 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_039</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>21.31584858398967 -15.510678165250138 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_040</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>21.225763564168492 -16.83376844646532 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_041</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>19.73386899121484 -16.86766182025943 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_042</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>17.50373596304205 -16.97232353918604 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_043</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>15.903815817522073 -16.97232353918604 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_044</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>15.88406591925859 -18.315469523541044 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_045</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>17.483986064778566 -18.315469523541044 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_046</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>19.699950133681043 -18.325637535679277 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_047</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>21.31584858398967 -18.354969320068008 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_048</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>21.138099499618324 -19.777114897476945 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_049</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>21.31584858398967 -21.140010780095434 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_050</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>21.296098685726186 -22.542380975501192 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_051</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>21.293575795496402 -23.88631695578674 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_052</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>19.767787848748643 -23.852398098252937 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_053</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>19.75545371873635 -22.542380975501192 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_054</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>19.73570382047287 -21.140010780095434 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_055</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>19.676454125682422 -19.757364999213465 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_056</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>15.80506632620466 -19.836364592267397 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_057</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>17.38521108972146 -19.836364592267397 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_058</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>17.496039873654215 -21.13988336139696 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_059</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>17.483986064778566 -22.463381382447263 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_060</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>17.38521108972146 -23.96452655291013 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_061</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>15.844566122731624 -23.984276451173614 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_062</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>15.902439695578554 -22.462234614160995 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>AdjTable_L1_063</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/AdjTable</uri>
+      <pose>15.936333069372658 -21.13988336139696 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_001</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>15.706112964969686 -11.94438169739872 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_002</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>16.3422380752317 -11.94438169739872 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_003</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.190387899754587 -11.94438169739872 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_004</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.759032067304723 -11.925115990189438 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_005</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>15.609402172827856 -13.277589023272748 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_006</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>16.259466888702935 -13.262094909538298 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_007</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.110776696947976 -13.277589023272748 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_008</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.698941409104346 -13.277589023272748 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_009</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.855437054570213 -14.855108961600978 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_010</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.180755046149944 -14.874400152549956 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_011</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>16.303681177073443 -14.84547610799634 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_012</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>15.648290359602147 -14.855108961600978 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_013</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>18.309684714630322 -39.56202781930051 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_014</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>19.173812843941857 -39.56202781930051 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_015</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>15.609402172827856 -24.56117735038487 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_016</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>16.21303551497898 -24.530240090395363 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_017</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.07981395321878 -24.545708720390117 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_018</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.668004149114836 -24.56117735038487 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_019</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>19.33963553813603 -24.452845972942207 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_020</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.005194367745556 -24.48380871667141 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_021</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.980329667167712 -24.452845972942207 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_022</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.491100261870923 -24.48380871667141 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_023</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.16275713463181 -24.452845972942207 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_024</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.76639047678293 -24.452845972942207 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_025</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>24.679600288746684 -24.452845972942207 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_026</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>25.283259114637502 -24.421883229213005 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_027</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.17822576462656 -23.075271456259504 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_028</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.750921846788177 -23.090765569993952 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_029</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>24.695094402481132 -23.044334196269997 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_030</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>25.283259114637502 -23.044334196269997 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_031</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>15.734297981072151 -23.14423045587368 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_032</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>16.356610904419576 -23.14423045587368 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_033</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.248032118944263 -23.127411187675097 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_034</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.87034504229168 -23.161049724072257 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_035</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>19.602755150485013 -23.161049724072257 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_036</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.191429537435276 -23.177868992270835 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_037</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.082876235699658 -23.194688260469416 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_038</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.705189159047077 -23.211507528667994 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_039</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>19.567867910842807 -11.965991908659923 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_040</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.261254984199073 -11.949096189242262 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_041</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.089935231595117 -11.949096189242262 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_042</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.715662976061648 -11.965991908659923 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_043</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.32228534512136 -11.965991908659923 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_044</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.931117370170224 -11.932174986084902 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_045</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>24.87819507218839 -11.915253782927545 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_046</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>25.554660942387297 -11.982913111817282 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_047</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>19.44799239931839 -13.2930576532675 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_048</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.06711985520396 -13.262094909538298 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_049</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.964835553433264 -13.2930576532675 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_050</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.630419866782486 -13.2930576532675 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_051</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.25561988207972 -13.153763532095633 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_052</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.828315964241334 -13.153763532095633 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_053</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>24.648663028757177 -13.277589023272748 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_054</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>25.470105894079897 -13.318949132797433 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_055</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>19.43249828558394 -14.748000803663665 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_056</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.05162574146951 -14.732532173668911 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_057</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.94936692343851 -14.71706354367416 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_058</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.67685124050644 -14.71706354367416 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_059</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.22465713835052 -14.608706682491798 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_060</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.84378459423609 -14.608706682491798 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_061</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>24.710563032475886 -14.655138056215753 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_062</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>25.298753228371947 -14.670632169950203 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_063</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>25.345184602095905 -16.079143946622413 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_064</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>24.695094402481132 -16.125575320346368 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_065</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.76639047678293 -16.079143946622413 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_066</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.209188508355766 -16.063649832887965 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_067</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.599457123053284 -16.001749829169253 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_068</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.933898293443757 -16.032712572898454 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_069</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.036157111474758 -16.063649832887965 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_070</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>19.386066911859984 -16.079143946622413 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_071</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.65251003538039 -16.063649832887965 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_072</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.14173944067718 -16.094612576617166 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_073</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>16.197566884984226 -16.094612576617166 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_074</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>15.609402172827856 -16.094612576617166 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_075</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>15.609402172827856 -17.48765572329462 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_076</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>16.120172767531066 -17.472187093299866 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_077</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.095308066953223 -17.503124353289376 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_078</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.729904152833548 -17.472187093299866 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_079</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>19.517129785110427 -17.563826621242427 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_080</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.176674452151975 -17.580747824399786 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_081</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.089935231595117 -17.54690541808507 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_082</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.732584179219007 -17.530009698667406 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_083</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.356127751436077 -17.631485950132166 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_084</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.981855495902607 -17.614564746974807 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_085</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>24.86127386903103 -17.580747824399786 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_086</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>25.503922816654917 -17.614564746974807 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_087</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>15.640339432817365 -18.88069886997208 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_088</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>16.182072771249775 -18.88069886997208 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_089</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.048876693229268 -18.865204756237627 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_090</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.65251003538039 -18.865204756237627 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_091</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>19.401561025594436 -18.818773382513672 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_092</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.06711985520396 -18.849736126242874 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_093</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.964835553433264 -18.834267496248124 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_094</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.553025749329326 -18.896167499966833 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_095</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.131794390902606 -18.865204756237627 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_096</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.76639047678293 -18.834267496248124 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_097</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>24.679600288746684 -18.865204756237627 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_098</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>25.252296370908297 -18.88069886997208 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_099</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>15.609402172827856 -20.289210646644285 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_100</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>16.259466888702935 -20.273716532909837 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_101</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.06434532322402 -20.24277927292033 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_102</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.7453727828283 -20.289210646644285 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_103</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>19.37059828186523 -20.289210646644285 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_104</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.036157111474758 -20.273716532909837 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_105</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.056092825280402 -20.38811304039987 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_106</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.631107927754247 -20.38811304039987 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_107</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.193694394621314 -20.258247902915084 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_108</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.859278707970535 -20.24277927292033 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_109</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>24.695094402481132 -20.24277927292033 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_110</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>25.36065323209066 -20.24277927292033 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_111</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>25.3142218583667 -21.62032830586334 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_112</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>24.679600288746684 -21.682253793321742 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_113</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.797353220512132 -21.697722423316495 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_114</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>23.209188508355766 -21.682253793321742 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_115</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>21.47563163187617 -21.682253793321742 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_116</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.933898293443757 -21.713191053311252 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_117</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>20.036157111474758 -21.666759679587294 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_118</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>19.44799239931839 -21.697722423316495 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_119</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.729904152833548 -21.65129104959254 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_120</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>17.110776696947976 -21.65129104959254 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_121</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>16.182072771249775 -21.697722423316495 0.0 0 0 -3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>OfficeChairGrey_L1_122</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/OfficeChairGrey</uri>
+      <pose>15.59390805909341 -21.697722423316495 0.0 0 0 3.1416</pose>
+      <static>True</static>
+    </include>
+    <include>
+      <name>tinyRobot1</name>
+      <uri>model://TinyRobot</uri>
+      <pose>15.58603358352771 -7.8399705821515555 0.0 0 0 -2.149322120334203</pose>
+    </include>
+    <model name="door_L1_01">
+      <pose>18.858629951396367 -31.653340333061877 0.0 0 0 3.1201089760456426</pose>
+      <link name="right">
+        <pose>0.6966441090330155 0 1.11 0 0 0</pose>
+        <visual name="right_visual">
+          <geometry>
+            <box>
+              <size>1.383288218066031 0.03 2.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.25 0 0.6</ambient>
+            <diffuse>0.5 0.25 0 0.6</diffuse>
+            <pbr>
+              <metal>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="right_collision">
+          <geometry>
+            <box>
+              <size>1.383288218066031 0.03 2.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>0x02</collide_bitmask>
+            </contact>
+          </surface>
+        </collision>
+        <inertial>
+          <mass>50.0</mass>
+          <inertia>
+            <ixx>20.17041666666667</ixx>
+            <iyy>28.139526226001237</iyy>
+            <izz>7.976609559334564</izz>
+          </inertia>
+        </inertial>
+      </link>
+      <joint name="right_joint" type="revolute">
+        <parent>world</parent>
+        <child>right</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.57</upper>
+          </limit>
+        </axis>
+        <pose>0.6966441090330155 0 0 0 0 0</pose>
+      </joint>
+      <link name="left">
+        <pose>-0.6966441090330155 0 1.11 0 0 0</pose>
+        <visual name="left_visual">
+          <geometry>
+            <box>
+              <size>1.383288218066031 0.03 2.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.25 0 0.6</ambient>
+            <diffuse>0.5 0.25 0 0.6</diffuse>
+            <pbr>
+              <metal>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="left_collision">
+          <geometry>
+            <box>
+              <size>1.383288218066031 0.03 2.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>0x02</collide_bitmask>
+            </contact>
+          </surface>
+        </collision>
+        <inertial>
+          <mass>50.0</mass>
+          <inertia>
+            <ixx>20.17041666666667</ixx>
+            <iyy>28.139526226001237</iyy>
+            <izz>7.976609559334564</izz>
+          </inertia>
+        </inertial>
+      </link>
+      <joint name="left_joint" type="revolute">
+        <parent>world</parent>
+        <child>left</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1.57</lower>
+            <upper>0</upper>
+          </limit>
+        </axis>
+        <pose>-0.6966441090330155 0 0 0 0 0</pose>
+      </joint>
+      <plugin name="register_component" filename="libregister_component.so">
+        <component name="Door">
+          <v_max_door>0.5</v_max_door>
+          <a_max_door>0.3</a_max_door>
+          <a_nom_door>0.15</a_nom_door>
+          <dx_min_door>0.01</dx_min_door>
+          <f_max_door>500.0</f_max_door>
+          <ros_interface>true</ros_interface>
+          <door name="door_L1_01" type="DoubleSwingDoor" left_joint_name="left_joint" right_joint_name="right_joint" />
+        </component>
+      </plugin>
+    </model>
+    <model name="door_L1_02">
+      <pose>22.098747293023976 -31.696777367371695 0.0 0 0 3.1320340084648444</pose>
+      <link name="right">
+        <pose>0.7065116205484322 0 1.11 0 0 0</pose>
+        <visual name="right_visual">
+          <geometry>
+            <box>
+              <size>1.4030232410968644 0.03 2.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.25 0 0.6</ambient>
+            <diffuse>0.5 0.25 0 0.6</diffuse>
+            <pbr>
+              <metal>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="right_collision">
+          <geometry>
+            <box>
+              <size>1.4030232410968644 0.03 2.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>0x02</collide_bitmask>
+            </contact>
+          </surface>
+        </collision>
+        <inertial>
+          <mass>50.0</mass>
+          <inertia>
+            <ixx>20.17041666666667</ixx>
+            <iyy>28.368642562741464</iyy>
+            <izz>8.205725896074792</izz>
+          </inertia>
+        </inertial>
+      </link>
+      <joint name="right_joint" type="revolute">
+        <parent>world</parent>
+        <child>right</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.57</upper>
+          </limit>
+        </axis>
+        <pose>0.7065116205484322 0 0 0 0 0</pose>
+      </joint>
+      <link name="left">
+        <pose>-0.7065116205484322 0 1.11 0 0 0</pose>
+        <visual name="left_visual">
+          <geometry>
+            <box>
+              <size>1.4030232410968644 0.03 2.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.25 0 0.6</ambient>
+            <diffuse>0.5 0.25 0 0.6</diffuse>
+            <pbr>
+              <metal>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="left_collision">
+          <geometry>
+            <box>
+              <size>1.4030232410968644 0.03 2.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>0x02</collide_bitmask>
+            </contact>
+          </surface>
+        </collision>
+        <inertial>
+          <mass>50.0</mass>
+          <inertia>
+            <ixx>20.17041666666667</ixx>
+            <iyy>28.368642562741464</iyy>
+            <izz>8.205725896074792</izz>
+          </inertia>
+        </inertial>
+      </link>
+      <joint name="left_joint" type="revolute">
+        <parent>world</parent>
+        <child>left</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1.57</lower>
+            <upper>0</upper>
+          </limit>
+        </axis>
+        <pose>-0.7065116205484322 0 0 0 0 0</pose>
+      </joint>
+      <plugin name="register_component" filename="libregister_component.so">
+        <component name="Door">
+          <v_max_door>0.5</v_max_door>
+          <a_max_door>0.3</a_max_door>
+          <a_nom_door>0.15</a_nom_door>
+          <dx_min_door>0.01</dx_min_door>
+          <f_max_door>500.0</f_max_door>
+          <ros_interface>true</ros_interface>
+          <door name="door_L1_02" type="DoubleSwingDoor" left_joint_name="left_joint" right_joint_name="right_joint" />
+        </component>
+      </plugin>
+    </model>
+    <model name="door_L1_03">
+      <pose>16.926274421557505 -43.24632674380877 0.0 0 0 -1.5878908456116652</pose>
+      <link name="right">
+        <pose>0.3518353195416009 0 1.11 0 0 0</pose>
+        <visual name="right_visual">
+          <geometry>
+            <box>
+              <size>0.6936706390832018 0.03 2.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.25 0 0.6</ambient>
+            <diffuse>0.5 0.25 0 0.6</diffuse>
+            <pbr>
+              <metal>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="right_collision">
+          <geometry>
+            <box>
+              <size>0.6936706390832018 0.03 2.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>0x02</collide_bitmask>
+            </contact>
+          </surface>
+        </collision>
+        <inertial>
+          <mass>50.0</mass>
+          <inertia>
+            <ixx>20.17041666666667</ixx>
+            <iyy>22.171578981358742</iyy>
+            <izz>2.0086623146920735</izz>
+          </inertia>
+        </inertial>
+      </link>
+      <joint name="right_joint" type="revolute">
+        <parent>world</parent>
+        <child>right</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.57</upper>
+          </limit>
+        </axis>
+        <pose>0.3518353195416009 0 0 0 0 0</pose>
+      </joint>
+      <link name="left">
+        <pose>-0.3518353195416009 0 1.11 0 0 0</pose>
+        <visual name="left_visual">
+          <geometry>
+            <box>
+              <size>0.6936706390832018 0.03 2.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.25 0 0.6</ambient>
+            <diffuse>0.5 0.25 0 0.6</diffuse>
+            <pbr>
+              <metal>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="left_collision">
+          <geometry>
+            <box>
+              <size>0.6936706390832018 0.03 2.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>0x02</collide_bitmask>
+            </contact>
+          </surface>
+        </collision>
+        <inertial>
+          <mass>50.0</mass>
+          <inertia>
+            <ixx>20.17041666666667</ixx>
+            <iyy>22.171578981358742</iyy>
+            <izz>2.0086623146920735</izz>
+          </inertia>
+        </inertial>
+      </link>
+      <joint name="left_joint" type="revolute">
+        <parent>world</parent>
+        <child>left</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1.57</lower>
+            <upper>0</upper>
+          </limit>
+        </axis>
+        <pose>-0.3518353195416009 0 0 0 0 0</pose>
+      </joint>
+      <plugin name="register_component" filename="libregister_component.so">
+        <component name="Door">
+          <v_max_door>0.5</v_max_door>
+          <a_max_door>0.3</a_max_door>
+          <a_nom_door>0.15</a_nom_door>
+          <dx_min_door>0.01</dx_min_door>
+          <f_max_door>500.0</f_max_door>
+          <ros_interface>true</ros_interface>
+          <door name="door_L1_03" type="DoubleSwingDoor" left_joint_name="left_joint" right_joint_name="right_joint" />
+        </component>
+      </plugin>
+    </model>
+    <model name="door_L1_04">
+      <pose>17.057948904560625 -35.038243541765596 0.0 0 0 1.5642473731390851</pose>
+      <link name="right">
+        <pose>0 0 1.11 0 0 0</pose>
+        <visual name="right_visual">
+          <geometry>
+            <box>
+              <size>0.8927808382103803 0.03 2.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.25 0 0.6</ambient>
+            <diffuse>0.5 0.25 0 0.6</diffuse>
+            <pbr>
+              <metal>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="right_collision">
+          <geometry>
+            <box>
+              <size>0.8927808382103803 0.03 2.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>0x02</collide_bitmask>
+            </contact>
+          </surface>
+        </collision>
+        <inertial>
+          <mass>50.0</mass>
+          <inertia>
+            <ixx>20.17041666666667</ixx>
+            <iyy>23.487740104481794</iyy>
+            <izz>3.3248234378151222</izz>
+          </inertia>
+        </inertial>
+      </link>
+      <joint name="right_joint" type="revolute">
+        <parent>world</parent>
+        <child>right</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.57</upper>
+          </limit>
+        </axis>
+        <pose>0.4513904191051902 0 0 0 0 0</pose>
+      </joint>
+      <plugin name="register_component" filename="libregister_component.so">
+        <component name="Door">
+          <v_max_door>0.5</v_max_door>
+          <a_max_door>0.3</a_max_door>
+          <a_nom_door>0.15</a_nom_door>
+          <dx_min_door>0.01</dx_min_door>
+          <f_max_door>500.0</f_max_door>
+          <ros_interface>true</ros_interface>
+          <door name="door_L1_04" type="SwingDoor" left_joint_name="empty_joint" right_joint_name="right_joint" />
+        </component>
+      </plugin>
+    </model>
+    <model name="door_L1_05">
+      <pose>23.52683058178181 -35.00832563136388 0.0 0 0 1.572758725800241</pose>
+      <link name="right">
+        <pose>0 0 1.11 0 0 0</pose>
+        <visual name="right_visual">
+          <geometry>
+            <box>
+              <size>0.8860354967296602 0.03 2.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.25 0 0.6</ambient>
+            <diffuse>0.5 0.25 0 0.6</diffuse>
+            <pbr>
+              <metal>
+                <metalness>0.0</metalness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name="right_collision">
+          <geometry>
+            <box>
+              <size>0.8860354967296602 0.03 2.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>0x02</collide_bitmask>
+            </contact>
+          </surface>
+        </collision>
+        <inertial>
+          <mass>50.0</mass>
+          <inertia>
+            <ixx>20.17041666666667</ixx>
+            <iyy>23.43774542277074</iyy>
+            <izz>3.274828756104066</izz>
+          </inertia>
+        </inertial>
+      </link>
+      <joint name="right_joint" type="prismatic">
+        <parent>world</parent>
+        <child>right</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>0.0</lower>
+            <upper>0.8960354967296602</upper>
+            <effort>500.0</effort>
+          </limit>
+        </axis>
+      </joint>
+      <plugin name="register_component" filename="libregister_component.so">
+        <component name="Door">
+          <v_max_door>0.2</v_max_door>
+          <a_max_door>0.2</a_max_door>
+          <a_nom_door>0.08</a_nom_door>
+          <dx_min_door>0.001</dx_min_door>
+          <f_max_door>100.0</f_max_door>
+          <ros_interface>true</ros_interface>
+          <door name="door_L1_05" type="SlidingDoor" left_joint_name="empty_joint" right_joint_name="right_joint" />
+        </component>
+      </plugin>
+    </model>
+    <include>
+      <name>class_L1</name>
+      <uri>model://class_L1</uri>
+      <pose>0 0 0.0 0 0 0</pose>
+    </include>
+    <include>
+      <name>class_L2</name>
+      <uri>model://class_L2</uri>
+      <pose>0 0 8.0 0 0 0</pose>
+    </include>
+    <plugin name="register_component" filename="libregister_component.so">
+      <component name="Chargers" />
+    </plugin>
+  </world>
+</sdf>

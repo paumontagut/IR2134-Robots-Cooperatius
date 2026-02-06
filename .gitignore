@@ -1,0 +1,70 @@
+# =========================
+# General
+# =========================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.bak
+*~
+*.log
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# =========================
+# ROS 2 / colcon
+# =========================
+build/
+install/
+log/
+.colcon/
+.ament/
+*.egg-info/
+
+# =========================
+# Gazebo / Ignition / GZ
+# =========================
+~/.gz/
+~/.ignition/
+~/.gazebo/
+
+# =========================
+# Open-RMF / building tools outputs
+# =========================
+**/*.navgraph
+**/*.schedule
+**/*.graph
+**/*.yaml.bak
+**/rmf_*.log
+
+# =========================
+# ROSbags / recordings
+# =========================
+*.bag
+*.db3
+*.mcap
+rosbag2_*/
+bags/
+recordings/
+
+# =========================
+# IDEs
+# =========================
+.vscode/
+.idea/
+*.code-workspace
+
+# =========================
+# Docker / misc local
+# =========================
+*.tar
+*.tar.gz
+*.zip
