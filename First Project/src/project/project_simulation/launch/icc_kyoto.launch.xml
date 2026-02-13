@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="server_uri" default=""/>
+
+  <!-- Common launch -->
+  <include file="$(find-pkg-share project_config)/launch/icc_kyoto.launch.xml">
+    <arg name="use_sim_time" value="$(var use_sim_time)"/>
+    <arg name="server_uri" value="$(var server_uri)"/>
+  </include>
+
+  <!-- Simulation launch -->
+  <include file="$(find-pkg-share project_simulation)/launch/simulation.launch.xml">
+    <arg name="map_name" value="icc_kyoto"/>
+  </include>
+</launch>

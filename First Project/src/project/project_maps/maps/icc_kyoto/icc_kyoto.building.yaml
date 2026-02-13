@@ -1,0 +1,5991 @@
+coordinate_system: reference_image
+crowd_sim:
+  agent_groups:
+  - agents_name: []
+    agents_number: 0
+    group_id: 0
+    profile_selector: external_agent
+    state_selector: external_static
+    x: 0
+    y: 0
+  agent_profiles:
+  - ORCA_tau: 1
+    ORCA_tauObst: 0.4
+    class: 1
+    max_accel: 0
+    max_angle_vel: 0
+    max_neighbors: 10
+    max_speed: 0
+    name: external_agent
+    neighbor_dist: 5
+    obstacle_set: 1
+    pref_speed: 0
+    r: 0.25
+  enable: 0
+  goal_sets: []
+  model_types: []
+  obstacle_set:
+    class: 1
+    file_name: L1_navmesh.nav
+    type: nav_mesh
+  states:
+  - final: 1
+    goal_set: -1
+    name: external_static
+    navmesh_file_name: ''
+  transitions: []
+  update_time_step: 0.1
+graphs: {}
+levels:
+  L1:
+    doors:
+    - - 155
+      - 145
+      - motion_axis:
+        - 1
+        - start
+        motion_degrees:
+        - 3
+        - 90
+        motion_direction:
+        - 2
+        - 1
+        name:
+        - 1
+        - door_L1_01
+        plugin:
+        - 1
+        - normal
+        right_left_ratio:
+        - 3
+        - 1
+        type:
+        - 1
+        - double_hinged
+    - - 148
+      - 156
+      - motion_axis:
+        - 1
+        - start
+        motion_degrees:
+        - 3
+        - 90
+        motion_direction:
+        - 2
+        - 1
+        name:
+        - 1
+        - door_L1_02
+        plugin:
+        - 1
+        - normal
+        right_left_ratio:
+        - 3
+        - 1
+        type:
+        - 1
+        - double_hinged
+    - - 76
+      - 85
+      - motion_axis:
+        - 1
+        - start
+        motion_degrees:
+        - 3
+        - 90
+        motion_direction:
+        - 2
+        - 1
+        name:
+        - 1
+        - door_L1_03
+        plugin:
+        - 1
+        - normal
+        right_left_ratio:
+        - 3
+        - 1
+        type:
+        - 1
+        - double_hinged
+    - - 117
+      - 157
+      - motion_axis:
+        - 1
+        - end
+        motion_degrees:
+        - 3
+        - 90
+        motion_direction:
+        - 2
+        - -1
+        name:
+        - 1
+        - door_L1_04
+        plugin:
+        - 1
+        - normal
+        right_left_ratio:
+        - 3
+        - 1
+        type:
+        - 1
+        - hinged
+    - - 18
+      - 158
+      - motion_axis:
+        - 1
+        - start
+        motion_degrees:
+        - 3
+        - 90
+        motion_direction:
+        - 2
+        - 1
+        name:
+        - 1
+        - door_L1_05
+        plugin:
+        - 1
+        - normal
+        right_left_ratio:
+        - 3
+        - 1
+        type:
+        - 1
+        - sliding
+    drawing:
+      filename: conference_room_b1.png
+    elevation: 0
+    fiducials:
+    - - 689.043
+      - 1419.008
+      - left_column
+    - - 916.346
+      - 1418.999
+      - right_column
+    floors:
+    - parameters:
+        ceiling_scale:
+        - 3
+        - 1
+        ceiling_texture:
+        - 1
+        - blue_linoleum
+        indoor:
+        - 2
+        - 0
+        texture_name:
+        - 1
+        - blue_linoleum
+        texture_rotation:
+        - 3
+        - 0
+        texture_scale:
+        - 3
+        - 1
+      vertices:
+      - 2
+      - 5
+      - 6
+      - 4
+      - 7
+      - 3
+    lanes:
+    - - 159
+      - 160
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 160
+      - 161
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 161
+      - 162
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 162
+      - 163
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 163
+      - 164
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 164
+      - 165
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 165
+      - 166
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 166
+      - 167
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 164
+      - 168
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 168
+      - 169
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 169
+      - 170
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 170
+      - 171
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 167
+      - 172
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 172
+      - 173
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 173
+      - 174
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 174
+      - 175
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 175
+      - 176
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 176
+      - 177
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 177
+      - 178
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 178
+      - 179
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 179
+      - 180
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 180
+      - 181
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 181
+      - 182
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 182
+      - 183
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 183
+      - 184
+      - bidirectional:
+        - 4
+        - false
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 184
+      - 177
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 159
+      - 185
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 185
+      - 171
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 186
+      - 187
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 1
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 187
+      - 188
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 1
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 188
+      - 189
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 1
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 189
+      - 186
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 1
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 188
+      - 190
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 1
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 190
+      - 191
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 1
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 191
+      - 192
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 1
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 192
+      - 193
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 1
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 193
+      - 194
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 1
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 194
+      - 195
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 1
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 195
+      - 196
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 1
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 196
+      - 194
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 1
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    - - 167
+      - 197
+      - bidirectional:
+        - 4
+        - true
+        demo_mock_floor_name:
+        - 1
+        - ''
+        demo_mock_lift_name:
+        - 1
+        - ''
+        graph_idx:
+        - 2
+        - 0
+        mutex:
+        - 1
+        - ''
+        orientation:
+        - 1
+        - ''
+        speed_limit:
+        - 3
+        - 0
+    layers:
+      sim_scan:
+        color:
+        - 1
+        - 0
+        - 0
+        - 0.5
+        filename: scans/sim_hall.png
+        transform:
+          scale: 0.05035502979390891
+          translation_x: 5.644127048956652
+          translation_y: 4.720383399035892
+          yaw: 0.0015637192290506856
+        visible: true
+    measurements:
+    - - 0
+      - 1
+      - distance:
+        - 3
+        - 12
+    models:
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_001
+      static: true
+      x: 624.852
+      y: 441.233
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_002
+      static: true
+      x: 684.533
+      y: 442.008
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_003
+      static: true
+      x: 772.239
+      y: 440.474
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_004
+      static: true
+      x: 834.87
+      y: 440.474
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_005
+      static: true
+      x: 923.518
+      y: 441.438
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_006
+      static: true
+      x: 980.367
+      y: 440.474
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_007
+      static: true
+      x: 626.743
+      y: 499.251
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_008
+      static: true
+      x: 681.665
+      y: 499.251
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_009
+      static: true
+      x: 772.239
+      y: 500.215
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_010
+      static: true
+      x: 834.87
+      y: 500.215
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_011
+      static: true
+      x: 921.59
+      y: 494.433
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_012
+      static: true
+      x: 982.94
+      y: 495.488
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_013
+      static: true
+      x: 922.554
+      y: 552.247
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_014
+      static: true
+      x: 980.367
+      y: 553.21
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_015
+      static: true
+      x: 620.977
+      y: 557.495
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_016
+      static: true
+      x: 681.665
+      y: 558.028
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_017
+      static: true
+      x: 771.656
+      y: 555.642
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_018
+      static: true
+      x: 835.43
+      y: 555.035
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_019
+      static: true
+      x: 621.752
+      y: 609.425
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_020
+      static: true
+      x: 681.433
+      y: 609.425
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_021
+      static: true
+      x: 734.471
+      y: 1531.965
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_022
+      static: true
+      x: 1186.831
+      y: 1609.226
+      yaw: 1.5708
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_023
+      static: true
+      x: 1186.831
+      y: 1683.735
+      yaw: 1.5708
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_024
+      static: true
+      x: 981.931
+      y: 937.316
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_025
+      static: true
+      x: 981.931
+      y: 882.765
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_026
+      static: true
+      x: 980.615
+      y: 826.448
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_027
+      static: true
+      x: 980.601
+      y: 771.001
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_028
+      static: true
+      x: 978.529
+      y: 717.523
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_029
+      static: true
+      x: 979.84
+      y: 665.231
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_030
+      static: true
+      x: 980.601
+      y: 611.339
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_031
+      static: true
+      x: 917.058
+      y: 610.976
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_032
+      static: true
+      x: 922.484
+      y: 666.006
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_033
+      static: true
+      x: 924.719
+      y: 717.781
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_034
+      static: true
+      x: 923.389
+      y: 769.671
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_035
+      static: true
+      x: 918.608
+      y: 827.223
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_036
+      static: true
+      x: 924.719
+      y: 882.765
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_037
+      static: true
+      x: 926.05
+      y: 938.646
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_038
+      static: true
+      x: 774.443
+      y: 608.65
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_039
+      static: true
+      x: 836.449
+      y: 608.65
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_040
+      static: true
+      x: 832.914
+      y: 660.569
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_041
+      static: true
+      x: 774.371
+      y: 661.899
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_042
+      static: true
+      x: 686.859
+      y: 666.006
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_043
+      static: true
+      x: 624.077
+      y: 666.006
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_044
+      static: true
+      x: 623.302
+      y: 718.712
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_045
+      static: true
+      x: 686.084
+      y: 718.712
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_046
+      static: true
+      x: 773.04
+      y: 719.111
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_047
+      static: true
+      x: 836.449
+      y: 720.262
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_048
+      static: true
+      x: 829.474
+      y: 776.068
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_049
+      static: true
+      x: 836.449
+      y: 829.549
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_050
+      static: true
+      x: 835.674
+      y: 884.579
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_051
+      static: true
+      x: 835.575
+      y: 937.316
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_052
+      static: true
+      x: 775.702
+      y: 935.985
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_053
+      static: true
+      x: 775.218
+      y: 884.579
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_054
+      static: true
+      x: 774.443
+      y: 829.549
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_055
+      static: true
+      x: 772.118
+      y: 775.293
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_056
+      static: true
+      x: 620.202
+      y: 778.393
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_057
+      static: true
+      x: 682.208
+      y: 778.393
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_058
+      static: true
+      x: 686.557
+      y: 829.544
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_059
+      static: true
+      x: 686.084
+      y: 881.479
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_060
+      static: true
+      x: 682.208
+      y: 940.385
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_061
+      static: true
+      x: 621.752
+      y: 941.16
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_062
+      static: true
+      x: 624.023
+      y: 881.434
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/AdjTable
+      name: AdjTable_L1_063
+      static: true
+      x: 625.353
+      y: 829.544
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_001
+      static: true
+      x: 616.319
+      y: 468.706
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_002
+      static: true
+      x: 641.281
+      y: 468.706
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_003
+      static: true
+      x: 674.563
+      y: 468.706
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_004
+      static: true
+      x: 696.877
+      y: 467.95
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_005
+      static: true
+      x: 612.524
+      y: 521.022
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_006
+      static: true
+      x: 638.033
+      y: 520.414
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_007
+      static: true
+      x: 671.439
+      y: 521.022
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_008
+      static: true
+      x: 694.519
+      y: 521.022
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_009
+      static: true
+      x: 700.66
+      y: 582.925
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_010
+      static: true
+      x: 674.185
+      y: 583.682
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_011
+      static: true
+      x: 639.768
+      y: 582.547
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_012
+      static: true
+      x: 614.05
+      y: 582.925
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_013
+      static: true
+      x: 718.485
+      y: 1552.442
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_014
+      static: true
+      x: 752.394
+      y: 1552.442
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_015
+      static: true
+      x: 612.524
+      y: 963.798
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_016
+      static: true
+      x: 636.211
+      y: 962.584
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_017
+      static: true
+      x: 670.224
+      y: 963.191
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_018
+      static: true
+      x: 693.305
+      y: 963.798
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_019
+      static: true
+      x: 758.901
+      y: 959.547
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_020
+      static: true
+      x: 785.018
+      y: 960.762
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_021
+      static: true
+      x: 823.283
+      y: 959.547
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_022
+      static: true
+      x: 843.326
+      y: 960.762
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_023
+      static: true
+      x: 908.923
+      y: 959.547
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_024
+      static: true
+      x: 932.61
+      y: 959.547
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_025
+      static: true
+      x: 968.445
+      y: 959.547
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_026
+      static: true
+      x: 992.133
+      y: 958.332
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_027
+      static: true
+      x: 909.53
+      y: 905.49
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_028
+      static: true
+      x: 932.003
+      y: 906.098
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_029
+      static: true
+      x: 969.053
+      y: 904.276
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_030
+      static: true
+      x: 992.133
+      y: 904.276
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_031
+      static: true
+      x: 617.425
+      y: 908.196
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_032
+      static: true
+      x: 641.845
+      y: 908.196
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_033
+      static: true
+      x: 676.825
+      y: 907.536
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_034
+      static: true
+      x: 701.245
+      y: 908.856
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_035
+      static: true
+      x: 769.226
+      y: 908.856
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_036
+      static: true
+      x: 792.326
+      y: 909.516
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_037
+      static: true
+      x: 827.307
+      y: 910.176
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_038
+      static: true
+      x: 851.727
+      y: 910.836
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_039
+      static: true
+      x: 767.857
+      y: 469.554
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_040
+      static: true
+      x: 795.066
+      y: 468.891
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_041
+      static: true
+      x: 827.584
+      y: 468.891
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_042
+      static: true
+      x: 852.138
+      y: 469.554
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_043
+      static: true
+      x: 915.183
+      y: 469.554
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_044
+      static: true
+      x: 939.074
+      y: 468.227
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_045
+      static: true
+      x: 976.238
+      y: 467.563
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_046
+      static: true
+      x: 1002.783
+      y: 470.218
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_047
+      static: true
+      x: 763.153
+      y: 521.629
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_048
+      static: true
+      x: 787.448
+      y: 520.414
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_049
+      static: true
+      x: 822.675
+      y: 521.629
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_050
+      static: true
+      x: 848.793
+      y: 521.629
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_051
+      static: true
+      x: 912.567
+      y: 516.163
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_052
+      static: true
+      x: 935.04
+      y: 516.163
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_053
+      static: true
+      x: 967.231
+      y: 521.022
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_054
+      static: true
+      x: 999.465
+      y: 522.645
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_055
+      static: true
+      x: 762.545
+      y: 578.722
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_056
+      static: true
+      x: 786.84
+      y: 578.115
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_057
+      static: true
+      x: 822.068
+      y: 577.508
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_058
+      static: true
+      x: 850.615
+      y: 577.508
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_059
+      static: true
+      x: 911.352
+      y: 573.256
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_060
+      static: true
+      x: 935.647
+      y: 573.256
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_061
+      static: true
+      x: 969.66
+      y: 575.078
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_062
+      static: true
+      x: 992.741
+      y: 575.686
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_063
+      static: true
+      x: 994.563
+      y: 630.957
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_064
+      static: true
+      x: 969.053
+      y: 632.779
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_065
+      static: true
+      x: 932.61
+      y: 630.957
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_066
+      static: true
+      x: 910.745
+      y: 630.349
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_067
+      static: true
+      x: 847.578
+      y: 627.92
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_068
+      static: true
+      x: 821.461
+      y: 629.135
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_069
+      static: true
+      x: 786.233
+      y: 630.349
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_070
+      static: true
+      x: 760.723
+      y: 630.957
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_071
+      static: true
+      x: 692.697
+      y: 630.349
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_072
+      static: true
+      x: 672.654
+      y: 631.564
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_073
+      static: true
+      x: 635.604
+      y: 631.564
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_074
+      static: true
+      x: 612.524
+      y: 631.564
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_075
+      static: true
+      x: 612.524
+      y: 686.228
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_076
+      static: true
+      x: 632.567
+      y: 685.621
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_077
+      static: true
+      x: 670.832
+      y: 686.835
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_078
+      static: true
+      x: 695.734
+      y: 685.621
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_079
+      static: true
+      x: 765.866
+      y: 689.217
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_080
+      static: true
+      x: 791.747
+      y: 689.881
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_081
+      static: true
+      x: 827.584
+      y: 688.553
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_082
+      static: true
+      x: 852.802
+      y: 687.89
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_083
+      static: true
+      x: 916.511
+      y: 691.872
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_084
+      static: true
+      x: 941.065
+      y: 691.208
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_085
+      static: true
+      x: 975.574
+      y: 689.881
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_086
+      static: true
+      x: 1000.792
+      y: 691.208
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_087
+      static: true
+      x: 613.738
+      y: 740.892
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_088
+      static: true
+      x: 634.996
+      y: 740.892
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_089
+      static: true
+      x: 669.01
+      y: 740.284
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_090
+      static: true
+      x: 692.697
+      y: 740.284
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_091
+      static: true
+      x: 761.331
+      y: 738.462
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_092
+      static: true
+      x: 787.448
+      y: 739.677
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_093
+      static: true
+      x: 822.675
+      y: 739.07
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_094
+      static: true
+      x: 845.756
+      y: 741.499
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_095
+      static: true
+      x: 907.708
+      y: 740.284
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_096
+      static: true
+      x: 932.61
+      y: 739.07
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_097
+      static: true
+      x: 968.445
+      y: 740.284
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_098
+      static: true
+      x: 990.918
+      y: 740.892
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_099
+      static: true
+      x: 612.524
+      y: 796.163
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_100
+      static: true
+      x: 638.033
+      y: 795.555
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_101
+      static: true
+      x: 669.617
+      y: 794.341
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_102
+      static: true
+      x: 696.341
+      y: 796.163
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_103
+      static: true
+      x: 760.116
+      y: 796.163
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_104
+      static: true
+      x: 786.233
+      y: 795.555
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_105
+      static: true
+      x: 826.256
+      y: 800.044
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_106
+      static: true
+      x: 848.82
+      y: 800.044
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_107
+      static: true
+      x: 910.137
+      y: 794.948
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_108
+      static: true
+      x: 936.255
+      y: 794.341
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_109
+      static: true
+      x: 969.053
+      y: 794.341
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_110
+      static: true
+      x: 995.17
+      y: 794.341
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_111
+      static: true
+      x: 993.348
+      y: 848.397
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_112
+      static: true
+      x: 968.445
+      y: 850.827
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_113
+      static: true
+      x: 933.825
+      y: 851.434
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_114
+      static: true
+      x: 910.745
+      y: 850.827
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_115
+      static: true
+      x: 842.719
+      y: 850.827
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_116
+      static: true
+      x: 821.461
+      y: 852.041
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_117
+      static: true
+      x: 786.233
+      y: 850.219
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_118
+      static: true
+      x: 763.153
+      y: 851.434
+      yaw: 3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_119
+      static: true
+      x: 695.734
+      y: 849.612
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_120
+      static: true
+      x: 671.439
+      y: 849.612
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_121
+      static: true
+      x: 634.996
+      y: 851.434
+      yaw: -3.1416
+      z: 0
+    - dispensable: false
+      model_name: OpenRobotics/OfficeChairGrey
+      name: OfficeChairGrey_L1_122
+      static: true
+      x: 611.916
+      y: 851.434
+      yaw: 3.1416
+      z: 0
+    vertices:
+    - - 572.376
+      - 370.666
+      - 0
+      - ''
+    - - 1043.26
+      - 372.725
+      - 0
+      - ''
+    - - 34.461
+      - 29.677
+      - 0
+      - ''
+    - - 29.4
+      - 1795.259
+      - 0
+      - ''
+    - - 1265.535
+      - 1508.917
+      - 0
+      - ''
+    - - 1178.255
+      - 29.907
+      - 0
+      - ''
+    - - 1178.724
+      - 1509.778
+      - 0
+      - ''
+    - - 1268.051
+      - 1792.931
+      - 0
+      - ''
+    - - 452.444
+      - 213.045
+      - 0
+      - ''
+    - - 714.519
+      - 213.045
+      - 0
+      - ''
+    - - 714.519
+      - 185.197
+      - 0
+      - ''
+    - - 747.341
+      - 184.699
+      - 0
+      - ''
+    - - 887.977
+      - 184.18
+      - 0
+      - ''
+    - - 887.704
+      - 213.126
+      - 0
+      - ''
+    - - 1154.804
+      - 212.997
+      - 0
+      - ''
+    - - 1158.449
+      - 1195.169
+      - 0
+      - ''
+    - - 1081.302
+      - 1196.128
+      - 0
+      - ''
+    - - 922.696
+      - 1196.607
+      - 0
+      - ''
+    - - 923.175
+      - 1356.171
+      - 0
+      - ''
+    - - 927.009
+      - 1399.297
+      - 0
+      - ''
+    - - 1118.198
+      - 1400.255
+      - 0
+      - ''
+    - - 1118.677
+      - 1418.464
+      - 0
+      - ''
+    - - 1145.99
+      - 1418.464
+      - 0
+      - ''
+    - - 1144.553
+      - 1522.444
+      - 0
+      - ''
+    - - 1253.533
+      - 1524.343
+      - 0
+      - ''
+    - - 1255.589
+      - 1729.913
+      - 0
+      - ''
+    - - 1248.394
+      - 1730.427
+      - 0
+      - ''
+    - - 1248.394
+      - 1744.817
+      - 0
+      - ''
+    - - 1264.325
+      - 1744.817
+      - 0
+      - ''
+    - - 1131.732
+      - 1733.511
+      - 0
+      - ''
+    - - 1183.125
+      - 1733.511
+      - 0
+      - ''
+    - - 1183.639
+      - 1745.845
+      - 0
+      - ''
+    - - 1132.246
+      - 1745.845
+      - 0
+      - ''
+    - - 344.351
+      - 1123.716
+      - 0
+      - ''
+    - - 354.861
+      - 1614.528
+      - 0
+      - ''
+    - - 449.45
+      - 1614.528
+      - 0
+      - ''
+    - - 449.45
+      - 1629.242
+      - 0
+      - ''
+    - - 330.688
+      - 1630.293
+      - 0
+      - ''
+    - - 328.586
+      - 1122.665
+      - 0
+      - ''
+    - - 222.436
+      - 1736.443
+      - 0
+      - ''
+    - - 223.487
+      - 1477.899
+      - 0
+      - ''
+    - - 236.099
+      - 1475.797
+      - 0
+      - ''
+    - - 233.997
+      - 1293.976
+      - 0
+      - ''
+    - - 247.66
+      - 1291.874
+      - 0
+      - ''
+    - - 247.66
+      - 1187.826
+      - 0
+      - ''
+    - - 225.589
+      - 1186.775
+      - 0
+      - ''
+    - - 223.487
+      - 1163.653
+      - 0
+      - ''
+    - - 236.099
+      - 1161.551
+      - 0
+      - ''
+    - - 237.15
+      - 994.444
+      - 0
+      - ''
+    - - 224.538
+      - 992.342
+      - 0
+      - ''
+    - - 225.76
+      - 711.432
+      - 0
+      - ''
+    - - 137.747
+      - 710.711
+      - 0
+      - ''
+    - - 138.468
+      - 719.368
+      - 0
+      - ''
+    - - 102.397
+      - 718.647
+      - 0
+      - ''
+    - - 102.397
+      - 728.746
+      - 0
+      - ''
+    - - 137.025
+      - 729.468
+      - 0
+      - ''
+    - - 137.747
+      - 736.682
+      - 0
+      - ''
+    - - 221.431
+      - 736.682
+      - 0
+      - ''
+    - - 202.337
+      - 1476.089
+      - 0
+      - ''
+    - - 200.345
+      - 1253.944
+      - 0
+      - ''
+    - - 218.276
+      - 1252.948
+      - 0
+      - ''
+    - - 216.284
+      - 1205.132
+      - 0
+      - ''
+    - - 205.326
+      - 1206.128
+      - 0
+      - ''
+    - - 205.326
+      - 1161.301
+      - 0
+      - ''
+    - - 197.357
+      - 1160.304
+      - 0
+      - ''
+    - - 196.36
+      - 988.964
+      - 0
+      - ''
+    - - 175.29
+      - 1765.029
+      - 0
+      - ''
+    - - 175.607
+      - 1779.607
+      - 0
+      - ''
+    - - 208.25
+      - 1779.29
+      - 0
+      - ''
+    - - 207.616
+      - 1765.346
+      - 0
+      - ''
+    - - 429.805
+      - 1764.512
+      - 0
+      - ''
+    - - 429.973
+      - 1779.805
+      - 0
+      - ''
+    - - 470.809
+      - 1779.637
+      - 0
+      - ''
+    - - 470.977
+      - 1766.025
+      - 0
+      - ''
+    - - 329.91
+      - 1727.504
+      - 0
+      - ''
+    - - 450.446
+      - 1730.727
+      - 0
+      - ''
+    - - 663.727
+      - 1724.625
+      - 0
+      - ''
+    - - 664.199
+      - 1743.975
+      - 0
+      - ''
+    - - 943.119
+      - 1744.919
+      - 0
+      - ''
+    - - 942.647
+      - 1733.592
+      - 0
+      - ''
+    - - 933.208
+      - 1730.761
+      - 0
+      - ''
+    - - 932.736
+      - 1622.685
+      - 0
+      - ''
+    - - 944.063
+      - 1622.685
+      - 0
+      - ''
+    - - 943.591
+      - 1595.784
+      - 0
+      - ''
+    - - 665.143
+      - 1596.256
+      - 0
+      - ''
+    - - 664.671
+      - 1669.408
+      - 0
+      - ''
+    - - 699.595
+      - 1670.351
+      - 0
+      - ''
+    - - 699.123
+      - 1663.272
+      - 0
+      - ''
+    - - 675.998
+      - 1661.856
+      - 0
+      - ''
+    - - 676.47
+      - 1605.223
+      - 0
+      - ''
+    - - 919.05
+      - 1605.695
+      - 0
+      - ''
+    - - 920.938
+      - 1731.232
+      - 0
+      - ''
+    - - 700.539
+      - 1732.176
+      - 0
+      - ''
+    - - 700.067
+      - 1726.513
+      - 0
+      - ''
+    - - 101.093
+      - 378.513
+      - 0
+      - ''
+    - - 135.024
+      - 380.209
+      - 0
+      - ''
+    - - 135.024
+      - 396.326
+      - 0
+      - ''
+    - - 224.94
+      - 396.326
+      - 0
+      - ''
+    - - 224.94
+      - 378.513
+      - 0
+      - ''
+    - - 239.36
+      - 377.664
+      - 0
+      - ''
+    - - 236.816
+      - 247.88
+      - 0
+      - ''
+    - - 381.074
+      - 224.605
+      - 0
+      - ''
+    - - 383.403
+      - 338.729
+      - 0
+      - ''
+    - - 374.087
+      - 337.953
+      - 0
+      - ''
+    - - 374.124
+      - 1040.355
+      - 0
+      - ''
+    - - 394.035
+      - 1040.583
+      - 0
+      - ''
+    - - 392.861
+      - 1123.227
+      - 0
+      - ''
+    - - 400.481
+      - 1566.501
+      - 0
+      - ''
+    - - 450.016
+      - 1569.041
+      - 0
+      - ''
+    - - 450.827
+      - 1555.806
+      - 0
+      - ''
+    - - 412.329
+      - 1553.204
+      - 0
+      - ''
+    - - 410.248
+      - 1417.941
+      - 0
+      - ''
+    - - 688.579
+      - 1418.461
+      - 0
+      - ''
+    - - 688.058
+      - 1393.49
+      - 0
+      - ''
+    - - 494.528
+      - 1391.409
+      - 0
+      - ''
+    - - 492.935
+      - 1208.128
+      - 0
+      - ''
+    - - 667.03
+      - 1207.638
+      - 0
+      - ''
+    - - 669.482
+      - 1357.213
+      - 0
+      - ''
+    - - 683.214
+      - 1357.213
+      - 0
+      - ''
+    - - 685.259
+      - 1066.352
+      - 0
+      - ''
+    - - 667.727
+      - 1068.982
+      - 0
+      - ''
+    - - 670.357
+      - 1193.464
+      - 0
+      - ''
+    - - 450.322
+      - 1196.97
+      - 0
+      - ''
+    - - 452.075
+      - 1043.56
+      - 0
+      - ''
+    - - 507.303
+      - 1043.56
+      - 0
+      - ''
+    - - 506.039
+      - 339.393
+      - 0
+      - ''
+    - - 449.627
+      - 341.155
+      - 0
+      - ''
+    - - 861.561
+      - 1067.614
+      - 0
+      - ''
+    - - 863.021
+      - 1131.149
+      - 0
+      - ''
+    - - 1028.066
+      - 1133.34
+      - 0
+      - ''
+    - - 1028.066
+      - 1146.485
+      - 0
+      - ''
+    - - 859.37
+      - 1150.136
+      - 0
+      - ''
+    - - 860.831
+      - 1120.925
+      - 0
+      - ''
+    - - 1096.935
+      - 338.754
+      - 0
+      - ''
+    - - 1097.068
+      - 1070.898
+      - 0
+      - ''
+    - - 914.64
+      - 1074.34
+      - 0
+      - ''
+    - - 914.64
+      - 1085.813
+      - 0
+      - ''
+    - - 1079.858
+      - 1085.813
+      - 0
+      - ''
+    - - 1079.858
+      - 1187.927
+      - 0
+      - ''
+    - - 675.507
+      - 1589.34
+      - 0
+      - ''
+    - - 674.937
+      - 1524.89
+      - 0
+      - ''
+    - - 601.932
+      - 1524.32
+      - 0
+      - ''
+    - - 601.362
+      - 1519.187
+      - 0
+      - ''
+    - - 680.64
+      - 1519.187
+      - 0
+      - ''
+    - - 680.64
+      - 1588.769
+      - 0
+      - ''
+    - - 794.687
+      - 1243.274
+      - 0
+      - ''
+    - - 795.021
+      - 1277.35
+      - 0
+      - ''
+    - - 811.725
+      - 1277.684
+      - 0
+      - ''
+    - - 811.725
+      - 1243.274
+      - 0
+      - ''
+    - - 438.69
+      - 331.251
+      - 0
+      - ''
+    - - 436.963
+      - 34.14
+      - 0
+      - ''
+    - - 1172.832
+      - 32.412
+      - 0
+      - ''
+    - - 1175.703
+      - 1421.316
+      - 0
+      - ''
+    - - 1116.761
+      - 215.391
+      - 0
+      - ''
+    - - 1116.761
+      - 337.873
+      - 0
+      - ''
+    - - 685.365
+      - 1240.925
+      - 0
+      - ''
+    - - 922.616
+      - 1244.334
+      - 0
+      - ''
+    - - 669.25
+      - 1392.638
+      - 0
+      - ''
+    - - 923.244
+      - 1391.332
+      - 0
+      - ''
+    - - 611.607
+      - 307.646
+      - 0
+      - podium
+      - spawn_robot_name:
+        - 1
+        - tinyRobot1
+        spawn_robot_type:
+        - 1
+        - TinyRobot
+    - - 546.524
+      - 407.304
+      - 0
+      - ''
+    - - 544.49
+      - 663.568
+      - 0
+      - ''
+    - - 544.49
+      - 1031.692
+      - 0
+      - ''
+    - - 605.505
+      - 1043.895
+      - 0
+      - towards_lift
+    - - 745.84
+      - 1043.895
+      - 0
+      - exit
+    - - 745.84
+      - 1310.263
+      - 0
+      - ''
+    - - 745.84
+      - 1460.232
+      - 0
+      - ''
+    - - 817.458
+      - 1524.264
+      - 0
+      - snack_bar
+    - - 1058.419
+      - 1043.895
+      - 0
+      - ''
+    - - 1058.419
+      - 665.954
+      - 0
+      - ''
+    - - 1058.162
+      - 396.798
+      - 0
+      - ''
+    - - 870.531
+      - 395.247
+      - 0
+      - ''
+    - - 1028.777
+      - 1524.264
+      - 0
+      - ''
+    - - 1028.777
+      - 1764.634
+      - 0
+      - ''
+    - - 555.014
+      - 1764.634
+      - 0
+      - ''
+    - - 555.014
+      - 1598.488
+      - 0
+      - ''
+    - - 380.644
+      - 1590.263
+      - 0
+      - ''
+    - - 365.839
+      - 1100.05
+      - 0
+      - ''
+    - - 339.518
+      - 1016.155
+      - 0
+      - ''
+    - - 339.518
+      - 810.828
+      - 0
+      - ''
+    - - 339.518
+      - 691.426
+      - 0
+      - ''
+    - - 339.518
+      - 559.619
+      - 0
+      - ''
+    - - 339.518
+      - 441.767
+      - 0
+      - ''
+    - - 270.42
+      - 441.767
+      - 0
+      - ''
+    - - 270.42
+      - 1031.023
+      - 0
+      - ''
+    - - 872.081
+      - 307.646
+      - 0
+      - stage_right
+    - - 726.795
+      - 394.757
+      - 0
+      - front_desks
+    - - 877.11
+      - 394.757
+      - 0
+      - ''
+    - - 881.488
+      - 1005.607
+      - 0
+      - ''
+    - - 725.817
+      - 1005.607
+      - 0
+      - ''
+    - - 888.297
+      - 1109.435
+      - 0
+      - ''
+    - - 1058.04
+      - 1110.598
+      - 0
+      - ''
+    - - 1059.203
+      - 1171.054
+      - 0
+      - ''
+    - - 872.02
+      - 1175.123
+      - 0
+      - ''
+    - - 872.811
+      - 1440.965
+      - 0
+      - ''
+    - - 1090.731
+      - 1440.965
+      - 0
+      - ''
+    - - 1090.731
+      - 1714.834
+      - 0
+      - ''
+    - - 817.458
+      - 1571.144
+      - 0
+      - snack_bar_pickup
+      - is_holding_point:
+        - 4
+        - true
+        is_parking_spot:
+        - 4
+        - true
+        pickup_dispenser:
+        - 1
+        - snack_bar
+    walls:
+    - - 8
+      - 9
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 9
+      - 10
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 10
+      - 11
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 11
+      - 12
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 12
+      - 13
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 13
+      - 14
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 14
+      - 15
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 15
+      - 16
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 16
+      - 17
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 17
+      - 18
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 19
+      - 20
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 20
+      - 21
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 21
+      - 22
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 22
+      - 23
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 23
+      - 24
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 24
+      - 25
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 25
+      - 26
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 26
+      - 27
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 27
+      - 28
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 29
+      - 30
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 30
+      - 31
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 31
+      - 32
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 32
+      - 29
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 33
+      - 34
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 34
+      - 35
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 35
+      - 36
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 36
+      - 37
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 37
+      - 38
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 38
+      - 33
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 39
+      - 40
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 40
+      - 41
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 41
+      - 42
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 42
+      - 43
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 43
+      - 44
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 44
+      - 45
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 45
+      - 46
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 46
+      - 47
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 47
+      - 48
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 48
+      - 49
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 49
+      - 50
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 50
+      - 51
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 51
+      - 52
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 52
+      - 53
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 53
+      - 54
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 54
+      - 55
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 55
+      - 56
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 56
+      - 57
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 40
+      - 58
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 58
+      - 59
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 59
+      - 60
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 60
+      - 61
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 61
+      - 62
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 62
+      - 63
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 63
+      - 64
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 64
+      - 65
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 65
+      - 49
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 66
+      - 67
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 67
+      - 68
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 68
+      - 69
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 69
+      - 66
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 70
+      - 71
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 71
+      - 72
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 72
+      - 73
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 73
+      - 70
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 74
+      - 75
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 76
+      - 77
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 77
+      - 78
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 78
+      - 79
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 79
+      - 80
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 80
+      - 81
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 81
+      - 82
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 82
+      - 83
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 83
+      - 84
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 84
+      - 85
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 85
+      - 86
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 86
+      - 87
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 87
+      - 88
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 88
+      - 89
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 89
+      - 90
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 90
+      - 91
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 91
+      - 92
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 92
+      - 93
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 93
+      - 76
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 94
+      - 95
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 95
+      - 96
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 96
+      - 97
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 97
+      - 98
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 98
+      - 99
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 99
+      - 100
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 101
+      - 102
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 102
+      - 103
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 103
+      - 104
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 104
+      - 105
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 105
+      - 106
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 106
+      - 107
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 107
+      - 108
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 108
+      - 109
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 109
+      - 110
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 110
+      - 111
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 111
+      - 112
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 112
+      - 113
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 113
+      - 114
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 114
+      - 115
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 115
+      - 116
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 116
+      - 117
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 117
+      - 118
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 118
+      - 119
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 119
+      - 120
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 120
+      - 121
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 121
+      - 122
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 122
+      - 123
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 123
+      - 124
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 124
+      - 125
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 125
+      - 126
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 126
+      - 8
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 127
+      - 128
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 128
+      - 129
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 129
+      - 130
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 130
+      - 131
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 131
+      - 132
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 133
+      - 134
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 134
+      - 135
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 135
+      - 136
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 136
+      - 137
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 137
+      - 138
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 138
+      - 16
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 139
+      - 140
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 140
+      - 141
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 141
+      - 142
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 142
+      - 143
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 143
+      - 144
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 145
+      - 146
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 146
+      - 147
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 147
+      - 148
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 148
+      - 145
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 149
+      - 150
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 150
+      - 151
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 151
+      - 152
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 152
+      - 22
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 153
+      - 154
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 154
+      - 133
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+  L2:
+    drawing:
+      filename: conference_room_b1_balcony.png
+    elevation: 8
+    fiducials:
+    - - 689.242
+      - 1418.732
+      - left_column
+    - - 916.236
+      - 1419.02
+      - right_column
+    floors:
+    - parameters:
+        ceiling_scale:
+        - 3
+        - 1
+        ceiling_texture:
+        - 1
+        - blue_linoleum
+        indoor:
+        - 2
+        - 0
+        texture_name:
+        - 1
+        - blue_linoleum
+        texture_rotation:
+        - 3
+        - 0
+        texture_scale:
+        - 3
+        - 1
+      vertices:
+      - 0
+      - 3
+      - 2
+      - 1
+    layers: {}
+    vertices:
+    - - 367.253
+      - 1047.806
+      - 0
+      - ''
+    - - 369.286
+      - 1417.843
+      - 0
+      - ''
+    - - 1178.486
+      - 1417.843
+      - 0
+      - ''
+    - - 1184.586
+      - 1049.839
+      - 0
+      - ''
+    - - 1158.617
+      - 1049.353
+      - 0
+      - ''
+    - - 1165.726
+      - 1417.232
+      - 0
+      - ''
+    - - 446.851
+      - 1417.232
+      - 0
+      - ''
+    - - 450.406
+      - 1047.576
+      - 0
+      - ''
+    walls:
+    - - 4
+      - 5
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 5
+      - 6
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+    - - 6
+      - 7
+      - alpha:
+        - 3
+        - 1
+        texture_height:
+        - 3
+        - 2.5
+        texture_name:
+        - 1
+        - default
+        texture_scale:
+        - 3
+        - 1
+        texture_width:
+        - 3
+        - 1
+lifts:
+  lift:
+    depth: 2
+    doors:
+      doors:
+        door_type: 2
+        motion_axis_orientation: 1.5707
+        width: 1
+        x: 1
+        y: 0
+    highest_floor: L2
+    initial_floor_name: L1
+    level_doors:
+      L1:
+      - doors
+      L2:
+      - doors
+    lowest_floor: L1
+    plugins: true
+    reference_floor_name: L1
+    width: 2
+    x: 550
+    y: 1150
+    yaw: 0
+name: class

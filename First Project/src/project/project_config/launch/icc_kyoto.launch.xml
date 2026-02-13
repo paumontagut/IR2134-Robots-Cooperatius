@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="use_sim_time" default="false"/>
+  <arg name="server_uri" default=""/>
+
+  <!-- Common launch -->
+  <include file="$(find-pkg-share project_config)/launch/common.launch.xml">
+    <arg name="use_sim_time" value="$(var use_sim_time)"/>
+    <arg name="config_file" value="$(find-pkg-share project_maps)/maps/icc_kyoto/icc_kyoto.building.yaml"/>
+    <arg name="server_uri" value="$(var server_uri)"/>
+  </include>
+
+  <!-- TinyRobot fleet adapter -->
+  <group>
+    <include file="$(find-pkg-share project_fleet_adapter)/launch/fleet_adapter.launch.xml">
+      <arg name="use_sim_time" value="$(var use_sim_time)"/>
+      <arg name="nav_graph_file" value="$(find-pkg-share project_maps)/maps/icc_kyoto/nav_graphs/0.yaml"/>
+      <arg name="config_file" value="$(find-pkg-share project_config)/config/icc_kyoto/tinyRobot_config.yaml"/>
+      <arg name="server_uri" value="$(var server_uri)"/>
+    </include>
+  </group>
+</launch>
