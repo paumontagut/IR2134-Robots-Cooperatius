@@ -135,14 +135,23 @@ Once the robot appears in the dashboard, you can dispatch tasks such as:
 - **Patrol (Loop):** Send the robot to patrol between two waypoints (e.g., `podium` -> `snack_bar` -> `podium`).
 - **Delivery:** Request a pickup at `snack_bar_pickup` and dropoff at another waypoint.
 
-You can also dispatch tasks via CLI:
+You can also dispatch tasks via CLI. Open a **new terminal inside the container** (Terminal 4):
 
 ```bash
-# Patrol task: robot loops between two waypoints
+# Get a shell inside the already-running container
+docker exec -it rmf_demos bash
+
+# Source the workspaces
+source /rmf_demos_ws/install/setup.bash
+source ~/rmf_ws/install/setup.bash
+
+# Wait until the robot appears in the dashboard, then dispatch a patrol task
 ros2 run rmf_demos_tasks dispatch_patrol \
   -p podium -p snack_bar -p stage_right -p podium \
   --use_sim_time
 ```
+
+> **Important:** The patrol command **must** be run inside the container with both workspaces sourced. The robot must already be visible in the dashboard (i.e. registered with RMF) before dispatching the task, otherwise the bid will time out before any robot responds.
 
 ## Screenshots
 
@@ -174,9 +183,9 @@ The dashboard confirms that the dispatched task has been completed successfully.
 
 ### 1. Gazebo crashes with Segmentation Fault in LiftPlugin
 
-**Problem:** The ICC Kyoto world includes a lift, and the `LiftPlugin` from `rmf_building_sim_gz_plugins` crashes with a segfault. The root cause is a bug where `enableComponent<AxisAlignedBox>()` is called inside an `ecm.Each()` iteration loop, which modifies the Entity Component Manager while iterating over it, corrupting the internal iterator.
+**Problem:** Both the `test1` and `icc_kyoto` worlds include lifts, and the `LiftPlugin` from `rmf_building_sim_gz_plugins` crashes with a segfault. The root cause is a bug where `enableComponent<AxisAlignedBox>()` is called inside an `ecm.Each()` iteration loop, which modifies the Entity Component Manager while iterating over it, corrupting the internal iterator.
 
-**Solution:** We patched the lift plugin source code. The `fix_lift.py` script automates the patch. Inside the container:
+**Solution:** Patch the lift plugin source code. The `fix_lift.py` script automates the patch. Inside the container, **in the same terminal you will use to launch the simulation**:
 
 ```bash
 cd ~/
@@ -189,7 +198,13 @@ colcon build --packages-select rmf_building_sim_gz_plugins
 source install/setup.bash
 ```
 
-Then re-launch the simulation from the same terminal.
+> **Critical:** The `source install/setup.bash` above loads the patched library **only in this terminal session**. Do not close or reuse this terminal for anything else — launch the simulation directly from here:
+
+```bash
+# Still in ~/rmf_simulation, now launch:
+source ~/rmf_ws/install/setup.bash
+ros2 launch project_simulation icc_kyoto.launch.xml server_uri:="ws://localhost:8000/_internal"
+```
 
 ### 2. Fleet adapter fails to connect / Robot does not appear in dashboard
 
@@ -225,3 +240,23 @@ sudo chmod 666 /dev/dri/*
 rm -rf build/<package_name>
 colcon build
 ```
+
+### 6. Patrol task dispatched but robot does not move
+
+**Problem:** `dispatch_patrol` exits without errors but the robot stays still. The task may appear as "queued" or "failed" in the dashboard.
+
+**Root causes (in order of likelihood):**
+
+1. **Command run outside the container or without the correct source.** `dispatch_patrol` must be run *inside* the container with both `/rmf_demos_ws/install/setup.bash` and `~/rmf_ws/install/setup.bash` sourced. If run from the host or from a fresh terminal, ROS2 topics are not connected to the simulation.
+
+2. **Robot not yet registered when the task is dispatched.** The bidding window is 2 seconds. If the robot has not appeared in the dashboard yet (i.e. the fleet adapter has not polled the fleet manager yet), no robot bids on the task and the bid expires. Wait until the robot icon appears in the RMF dashboard before sending any task.
+
+3. **Simulation launched from a terminal without the patched lift library.** If fix_lift.py was applied but the simulation was launched from a different terminal (without `source ~/rmf_simulation/install/setup.bash`), Gazebo loads the old library and crashes. The fleet adapter starts but never receives robot state from Gazebo, so the robot never registers. See issue #1 above for the correct launch procedure.
+
+**Quick check:** After launching, run the following in a container terminal to confirm the robot is registered:
+```bash
+source /rmf_demos_ws/install/setup.bash
+source ~/rmf_ws/install/setup.bash
+ros2 topic echo /fleet_states --once
+```
+You should see `tinyRobot` fleet with `tinyRobot1` listed. If the output is empty or the fleet has no robots, the fleet adapter is not receiving robot state from Gazebo.
