@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="server_uri" default=""/>
+
+  <!-- RMF core nodes (traffic schedule, map server, visualizer, etc.) -->
+  <include file="$(find-pkg-share project_config)/launch/common.launch.xml">
+    <arg name="use_sim_time" value="$(var use_sim_time)"/>
+    <arg name="config_file" value="$(find-pkg-share project_maps)/maps/estce/estce.building.yaml"/>
+    <arg name="server_uri" value="$(var server_uri)"/>
+    <arg name="initial_map" value="L1"/>
+  </include>
+
+  <!-- Fleet 1: Patrol fleet (TinyRobot, nav graph 0) -->
+  <group>
+    <include file="$(find-pkg-share project_fleet_adapter)/launch/fleet_adapter.launch.xml">
+      <arg name="use_sim_time" value="$(var use_sim_time)"/>
+      <arg name="nav_graph_file" value="$(find-pkg-share project_maps)/maps/estce/nav_graphs/0.yaml"/>
+      <arg name="config_file" value="$(find-pkg-share project_config)/config/estce/patrol_fleet_config.yaml"/>
+      <arg name="server_uri" value="$(var server_uri)"/>
+    </include>
+  </group>
+
+  <!-- Fleet 2: Cleaner fleet (CleanerBotA, nav graph 1) -->
+  <group>
+    <include file="$(find-pkg-share project_fleet_adapter)/launch/fleet_adapter.launch.xml">
+      <arg name="use_sim_time" value="$(var use_sim_time)"/>
+      <arg name="nav_graph_file" value="$(find-pkg-share project_maps)/maps/estce/nav_graphs/1.yaml"/>
+      <arg name="config_file" value="$(find-pkg-share project_config)/config/estce/cleaner_fleet_config.yaml"/>
+      <arg name="server_uri" value="$(var server_uri)"/>
+    </include>
+  </group>
+
+  <!-- Fleet 3: Delivery fleet (DeliveryRobot, nav graph 2) -->
+  <group>
+    <include file="$(find-pkg-share project_fleet_adapter)/launch/fleet_adapter.launch.xml">
+      <arg name="use_sim_time" value="$(var use_sim_time)"/>
+      <arg name="nav_graph_file" value="$(find-pkg-share project_maps)/maps/estce/nav_graphs/2.yaml"/>
+      <arg name="config_file" value="$(find-pkg-share project_config)/config/estce/delivery_fleet_config.yaml"/>
+      <arg name="server_uri" value="$(var server_uri)"/>
+    </include>
+  </group>
+
+</launch>

@@ -1,0 +1,50 @@
+# CLEANER FLEET CONFIG — CleanerBotA fleet for cleaning tasks
+# Nav graph: 1 (drawn with key '1' in Traffic Editor)
+
+rmf_fleet:
+  name: "cleaner_fleet"
+  limits:
+    linear: [0.4, 0.5]
+    angular: [0.5, 1.5]
+  profile:
+    footprint: 0.35
+    vicinity: 0.6
+  reversible: True
+  battery_system:
+    voltage: 24.0
+    capacity: 40.0
+    charging_current: 8.0
+  mechanical_system:
+    mass: 30.0
+    moment_of_inertia: 15.0
+    friction_coefficient: 0.22
+  ambient_system:
+    power: 30.0
+  tool_system:
+    power: 50.0             # cleaning motor
+  recharge_threshold: 0.15
+  recharge_soc: 1.0
+  publish_fleet_state: 10.0
+  account_for_battery_drain: False
+  task_capabilities:
+    loop: False
+    patrol: False
+    clean: True
+    delivery: False
+  actions: ["clean"]
+  finishing_request: "charge"
+  responsive_wait: False
+  use_parking_reservations: False
+  reassign_task_interval: 120
+  task_assignment_strategy:
+    profile: "DefaultFastest"
+  robots:
+    cleanerBot1:
+      charger: "cleaner_charger_1"
+      responsive_wait: False
+
+fleet_manager:
+  ip: "127.0.0.1"
+  port: 22013
+  user: "some_user"
+  password: "some_password"
