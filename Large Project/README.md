@@ -8,11 +8,15 @@ por RMF en un edificio de 2 plantas con puertas, ascensores y zonas de carga.
 
 ## Demo
 
-![Demo de la simulacion](screenshots/demo_simulation.gif)
+<p align="center">
+  <img src="screenshots/demo_simulation.gif" width="900">
+</p>
 
 Ejemplo lanzando una tarea de cada tipo (patrol, clean, delivery) y mostrando como
 los robots interactuan con los diferentes elementos del edificio: ascensores, puertas
-automaticas y dispensadores. Video acelerado a x15.
+automaticas y dispensadores. Video acelerado a x15 porque los robots iban muy lentos
+en la simulacion, probablemente por los recursos limitados del PC (el world tiene
+~1580 modelos y consume mucha CPU/GPU).
 
 ---
 
