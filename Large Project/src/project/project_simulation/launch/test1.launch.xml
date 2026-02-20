@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="use_sim_time" default="true"/>
+
+  <!-- Common launch -->
+  <include file="$(find-pkg-share project_config)/launch/test1.launch.xml">
+    <arg name="use_sim_time" value="$(var use_sim_time)"/>
+  </include>
+
+  <!-- Simulation launch -->
+  <include file="$(find-pkg-share project_simulation)/launch/simulation.launch.xml">
+    <arg name="map_name" value="test1"/>
+  </include>
+</launch>

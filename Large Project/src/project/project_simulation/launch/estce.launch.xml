@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="server_uri" default=""/>
+  <arg name="headless" default="false" description="Do not launch RViz; launch Gazebo in headless mode"/>
+  <arg name="sim_update_rate" default="100"/>
+
+  <!-- RMF nodes + fleet adapters -->
+  <include file="$(find-pkg-share project_config)/launch/estce.launch.xml">
+    <arg name="use_sim_time" value="$(var use_sim_time)"/>
+    <arg name="server_uri" value="$(var server_uri)"/>
+    <arg name="headless" value="$(var headless)"/>
+  </include>
+
+  <!-- Gazebo simulation (loads estce.world) -->
+  <include file="$(find-pkg-share project_simulation)/launch/simulation.launch.xml">
+    <arg name="map_name" value="estce"/>
+    <arg name="headless" value="$(var headless)"/>
+    <arg name="sim_update_rate" value="$(var sim_update_rate)"/>
+  </include>
+</launch>
