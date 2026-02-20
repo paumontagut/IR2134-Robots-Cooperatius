@@ -18,6 +18,24 @@ automaticas y dispensadores. Video acelerado a x15 porque los robots iban muy le
 en la simulacion, probablemente por los recursos limitados del PC (el world tiene
 ~1580 modelos y consume mucha CPU/GPU).
 
+### Patrol
+
+<p align="center">
+  <img src="screenshots/patrol.png" width="900">
+</p>
+
+### Clean
+
+<p align="center">
+  <img src="screenshots/clean.png" width="900">
+</p>
+
+### Delivery
+
+<p align="center">
+  <img src="screenshots/delivery.png" width="900">
+</p>
+
 ---
 
 ## Requisitos
