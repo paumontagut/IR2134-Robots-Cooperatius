@@ -105,42 +105,54 @@ bash setup_fuel_symlinks.sh
 
 ### 4. Parchear plugin de ascensores
 
+The container image only ships the pre-built `install/` folder, not the source code. We need
+to clone the source, patch it, and rebuild to a location where our user can write.
+
 ```bash
 cd ~/rmf-ws
-LIFT_CPP=$(find /rmf_demos_ws/src -name "lift.cpp" -path "*/rmf_building_sim_gz_plugins/*" 2>/dev/null)
-if [ -z "$LIFT_CPP" ]; then
-  LIFT_CPP=$(find / -name "lift.cpp" -path "*/rmf_building_sim_gz_plugins/*" 2>/dev/null | head -1)
-fi
+
+# Clone the source that contains lift.cpp
+git clone --depth 1 https://github.com/open-rmf/rmf_simulation.git /tmp/rmf_simulation
+
+# Find and patch lift.cpp
+LIFT_CPP=$(find /tmp/rmf_simulation -name "lift.cpp" -path "*/rmf_building_sim_gz_plugins/*")
 python3 fix_lift.py "$LIFT_CPP"
 
+# Build the patched plugin (all output goes to /tmp/ to avoid permission issues)
 source /opt/ros/jazzy/setup.bash
-cd /rmf_demos_ws
-colcon build --packages-select rmf_building_sim_gz_plugins \
-  --build-base /tmp/lift_build --log-base /tmp/lift_log
+source /rmf_demos_ws/install/setup.bash
+cd /tmp/rmf_simulation
+COLCON_LOG_PATH=/tmp/lift_log colcon build --packages-select rmf_building_sim_gz_plugins \
+  --build-base /tmp/lift_build --install-base /tmp/lift_install
+```
+
+Then in step 5 and when launching the simulation, make sure to also source the patched plugin:
+
+```bash
+source /tmp/lift_install/setup.bash
 ```
 
 > [!WARNING]
 > **`PermissionError: Permission denied: 'log'` when running colcon build in `/rmf_demos_ws`**
 >
-> This error happens because the `/rmf_demos_ws/` folder inside the container belongs to `root`,
-> but when using `rocker --user` (as we do in step 2), you enter the container as your normal
-> user (not root). So when `colcon build` tries to create the `log/` folder inside
-> `/rmf_demos_ws/`, it fails because your user does not have write permissions there.
+> The `/rmf_demos_ws/` folder inside the container belongs to `root`, but `rocker --user`
+> (step 2) enters the container as your normal user, not root. Any `colcon build` that tries
+> to write inside `/rmf_demos_ws/` (creating `log/`, `build/`, or writing to `install/`)
+> will fail with a permission error.
 >
-> **Fix:** Add `--build-base /tmp/lift_build --log-base /tmp/lift_log` to the colcon command
-> (already included above). This tells colcon to write its build and log files to `/tmp/`
-> instead of `/rmf_demos_ws/`, where your user does have write permissions.
+> The commands above avoid this by cloning and building everything under `/tmp/`, where any
+> user has write permissions.
 >
-> Alternatively, you can change the ownership of the folder before building:
+> Alternatively, you can take ownership of the folder and build there directly:
 > ```bash
 > sudo chown -R $(whoami) /rmf_demos_ws
-> colcon build --packages-select rmf_building_sim_gz_plugins
 > ```
 
 ### 5. Compilar el workspace
 
 ```bash
 source ~/rmf_ws/install/setup.bash
+source /tmp/lift_install/setup.bash
 cd ~/rmf-ws
 colcon build --symlink-install \
   --packages-select project_assets project_config project_fleet_adapter \
@@ -150,7 +162,8 @@ colcon build --symlink-install \
 
 > Usamos `source ~/rmf_ws/install/setup.bash` porque encadena Jazzy + los paquetes
 > RMF del contenedor. Si usas solo `/opt/ros/jazzy/setup.bash`, luego no encontrara
-> los paquetes RMF al hacer source.
+> los paquetes RMF al hacer source. The `source /tmp/lift_install/setup.bash` loads
+> the patched lift plugin from step 4.
 
 ---
 
@@ -179,6 +192,7 @@ export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
 source ~/rmf_ws/install/setup.bash
+source /tmp/lift_install/setup.bash
 source ~/rmf-ws/install/local_setup.bash
 export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:~/rmf-ws/fuel_models
 
