@@ -115,8 +115,27 @@ python3 fix_lift.py "$LIFT_CPP"
 
 source /opt/ros/jazzy/setup.bash
 cd /rmf_demos_ws
-colcon build --packages-select rmf_building_sim_gz_plugins
+colcon build --packages-select rmf_building_sim_gz_plugins \
+  --build-base /tmp/lift_build --log-base /tmp/lift_log
 ```
+
+> [!WARNING]
+> **`PermissionError: Permission denied: 'log'` when running colcon build in `/rmf_demos_ws`**
+>
+> This error happens because the `/rmf_demos_ws/` folder inside the container belongs to `root`,
+> but when using `rocker --user` (as we do in step 2), you enter the container as your normal
+> user (not root). So when `colcon build` tries to create the `log/` folder inside
+> `/rmf_demos_ws/`, it fails because your user does not have write permissions there.
+>
+> **Fix:** Add `--build-base /tmp/lift_build --log-base /tmp/lift_log` to the colcon command
+> (already included above). This tells colcon to write its build and log files to `/tmp/`
+> instead of `/rmf_demos_ws/`, where your user does have write permissions.
+>
+> Alternatively, you can change the ownership of the folder before building:
+> ```bash
+> sudo chown -R $(whoami) /rmf_demos_ws
+> colcon build --packages-select rmf_building_sim_gz_plugins
+> ```
 
 ### 5. Compilar el workspace
 
