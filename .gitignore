@@ -68,3 +68,6 @@ recordings/
 *.tar
 *.tar.gz
 *.zip
+
+# LibreOffice lock files
+.~lock.*#
