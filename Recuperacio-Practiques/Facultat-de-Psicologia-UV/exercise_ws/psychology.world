@@ -248,6 +248,16 @@
       </attenuation>
       <direction>-0.5 0.1 -0.9</direction>
     </light>
+    <include>
+      <name>tinyRobot1</name>
+      <uri>model://TinyRobot</uri>
+      <pose>154.6420706940493 -92.06870754912359 0.0 0 0 0.0</pose>
+    </include>
+    <include>
+      <name>tinyRobot2</name>
+      <uri>model://TinyRobot</uri>
+      <pose>95.3051813843793 -60.18415279990869 0.0 0 0 1.6396103092223693</pose>
+    </include>
     <model name="door4">
       <pose>94.45584686196355 -93.80036517791854 0.0 0 0 0.05786323146214642</pose>
       <link name="right">
@@ -1029,7 +1039,10 @@
       <pose>0 0 0.0 0 0 0</pose>
     </include>
     <plugin name="register_component" filename="libregister_component.so">
-      <component name="Chargers" />
+      <component name="Chargers">
+        <rmf_charger name="tinyRobot1_charger" x="154.6420706940493" y="-92.06870754912359" z="0.0" />
+        <rmf_charger name="tinyRobot2_charger" x="95.3051813843793" y="-60.18415279990869" z="0.0" />
+      </component>
     </plugin>
   </world>
 </sdf>
