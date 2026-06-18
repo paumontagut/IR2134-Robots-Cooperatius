@@ -1,0 +1,81 @@
+# FLEET CONFIG =================================================================
+# RMF Fleet parameters
+
+rmf_fleet:
+  name: "cleaner_fleet"
+  limits:
+    linear: [0.7, 0.6] # velocity, acceleration (tope CleanerBotE)
+    angular: [0.4, 1.2] # velocity, acceleration (tope CleanerBotE)
+  profile: # Robot profile is modelled as a circle
+    footprint: 0.3 # radius in m
+    vicinity: 0.5 # radius in m
+  reversible: True # whether robots in this fleet can reverse
+  battery_system:
+    voltage: 12.0 # V
+    capacity: 24.0 # Ahr
+    charging_current: 5.0 # A
+  mechanical_system:
+    mass: 20.0 # kg
+    moment_of_inertia: 10.0 #kgm^2
+    friction_coefficient: 0.22
+  ambient_system:
+    power: 20.0 # W
+  tool_system:
+    power: 0.0 # W
+  recharge_threshold: 0.10 # Battery level below which robots in this fleet will not operate
+  recharge_soc: 1.0 # Battery level to which robots in this fleet should be charged up to during recharging tasks
+  publish_fleet_state: 10.0 # Publish frequency for fleet state, ensure that it is same as robot_state_update_frequency
+  account_for_battery_drain: True
+  task_capabilities: # Specify the types of RMF Tasks that robots in this fleet are capable of performing
+    loop: False
+    delivery: False
+    patrol: False
+    clean: True
+  actions: ["clean"]
+  finishing_request: "charge" # [park, charge, nothing]
+  responsive_wait: False # Should responsive wait be on/off for the whole fleet by default? False if not specified.
+  use_parking_reservations: False
+  reassign_task_interval: 120 # seconds, specify how often a task reassignment should be triggered in the fleet
+  task_assignment_strategy:
+    profile: "DefaultFastest"   # [DefaultFastest, BatteryAware, Custom]
+    # DefaultFastest: Prioritize task efficiency (fastest finish time)Est
+    # BatteryAware: Optimize throughput with battery SoC in mind
+    # Custom: Use custom weights below
+    weights:  # Polynomial coefficients in the format [A, B, ..., N] such that cost = Ax + Bx^2 + ... + Nx^N
+      finish_time: [1.0] # task finish time cost
+      battery_penalty: [5.0, 20.0] # battery penalty for low SoC
+      busy_penalty: [60.0] # penalty for assigning tasks to busy robots, 2 modes:
+                                #   Binary: penalty applied if robot is busy with any task
+                                #   Count: penalty increases with number of tasks assigned to robot
+    options:
+      busy_mode: "Binary"   # [Binary, Count]
+  robots:
+    cleanRobot1:
+        charger: "cleanRobot1_charger"
+    cleanRobot2:
+        charger: "cleanRobot2_charger"
+        # No mention of responsive_wait means the fleet-wide setting will be used
+
+fleet_manager:
+  ip: "127.0.0.1"
+  port: 22013
+  user: "some_user"
+  password: "some_password"
+  action_paths:
+    clean:
+      l1_centre:
+        map_name: "L1"
+        path:
+          - [42.99, -23.48, 0.0]
+          - [44.19, -23.48, 0.0]
+          - [44.19, -24.68, 0.0]
+          - [42.99, -24.68, 0.0]
+          - [42.99, -23.48, 0.0]
+      s1_centre:
+        map_name: "S1"
+        path:
+          - [37.19, -25.14, 0.0]
+          - [38.39, -25.14, 0.0]
+          - [38.39, -26.34, 0.0]
+          - [37.19, -26.34, 0.0]
+          - [37.19, -25.14, 0.0]

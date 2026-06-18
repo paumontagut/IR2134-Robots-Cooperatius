@@ -1,0 +1,54 @@
+<?xml version='1.0' ?>
+
+<launch>
+  <arg name="use_sim_time" default="true"/>
+
+  <!-- Common launch -->
+  <include file="$(find-pkg-share rmf_demos)/common.launch.xml">
+    <arg name="use_sim_time" value="$(var use_sim_time)"/>
+    <arg name="config_file" value="/exercise_ws/industrial.building.yaml"/>
+  </include>
+
+  <!-- TinyRobot fleet adapter -->
+  <group>
+    <include file="$(find-pkg-share rmf_demos_fleet_adapter)/launch/fleet_adapter.launch.xml">
+      <arg name="use_sim_time" value="$(var use_sim_time)"/>
+      <arg name="nav_graph_file" value="/exercise_ws/nav_graphs/0.yaml" />
+      <arg name="config_file" value="/exercise_ws/config/tinyRobot_config.yaml"/>
+    </include>
+  </group>
+  
+  <let name="world_path" value="/exercise_ws/industrial.world" />
+  <let name="model_path" value="/exercise_ws/industrial_world:/rmf_demos_ws/install/rmf_demos_assets/share/rmf_demos_assets/models" />
+  
+  <group>
+    <set_env name="GZ_SIM_RESOURCE_PATH" value="$(env GZ_SIM_RESOURCE_PATH ''):$(var model_path)" />
+    <include file="$(find-pkg-share ros_gz_sim)/launch/gz_sim.launch.py">
+      <arg name="gz_args" value="-r -v 3 $(var world_path)"/>
+    </include>
+  </group>
+  
+     <!-- Cleaner fleet adapter -->
+  <group>
+    <include file="$(find-pkg-share rmf_demos_fleet_adapter)/launch/fleet_adapter.launch.xml">
+      <arg name="use_sim_time" value="$(var use_sim_time)"/>
+      <arg name="nav_graph_file" value="/exercise_ws/nav_graphs/0.yaml"/>
+      <arg name="config_file" value="/exercise_ws/config/cleaner_fleet_config.yaml"/>
+    </include>
+  </group>
+
+  <!-- Delivery fleet adapter -->
+  <group>
+    <include file="$(find-pkg-share rmf_demos_fleet_adapter)/launch/fleet_adapter.launch.xml">
+      <arg name="use_sim_time" value="$(var use_sim_time)"/>
+      <arg name="nav_graph_file" value="/exercise_ws/nav_graphs/0.yaml"/>
+      <arg name="config_file" value="/exercise_ws/config/delivery_fleet_config.yaml"/>
+    </include>
+  </group>
+
+  <!-- ros_gz bridge for simulation clock -->
+  <node pkg="ros_gz_bridge" exec="parameter_bridge"
+    args="/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock"
+    />
+
+</launch>
