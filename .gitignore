@@ -71,3 +71,6 @@ recordings/
 
 # LibreOffice lock files
 .~lock.*#
+
+# RMF runtime artifacts
+**/.rmf_schedule_node.yaml
